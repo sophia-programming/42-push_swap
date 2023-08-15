@@ -6,29 +6,29 @@ bool Check_IsNumber(char *num)
 
 	while (num[i])
 	{
-		if (ft_isdigit(num[i]))
-			return true;
+		if (!ft_isdigit(num[i]))
+			return false;
 		i++;
 	}
-	return false;
+	return true;
 }
 
-int main()
-{
-	char *values[] = {"3", "6", "1", "s", "3s", "0"};
-	int size = sizeof(values) / sizeof(values[0]);
-	int i = 0;
-
-	while (i < size)
-	{
-		if (Check_IsNumber(values[i]))
-			printf("%s is a number!\n", values[i]);
-		else
-			printf("%s is not a number!\n", values[i]);
-		i++;
-	}
-	return 0;
-}
+//int main()
+//{
+//	char *values[] = {"3", "6", "1", "s", "3s", "4*0"};
+//	int size = sizeof(values) / sizeof(values[0]);
+//	int i = 0;
+//
+//	while (i < size)
+//	{
+//		if (Check_IsNumber(values[i]))
+//			printf("%s is a number!\n", values[i]);
+//		else
+//			printf("%s is not a number!\n", values[i]);
+//		i++;
+//	}
+//	return 0;
+//}
 
 bool Check_If_INT(long long num)
 {
