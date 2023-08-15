@@ -15,9 +15,6 @@ void swap(t_list **stack)
 	  	 *a = *b;   //head->data = next->data;
 		 *b = tmp;  //next->data = tmp_data;
 	 */
-	int tmp_index = head->index;
-	head->index = next->index;
-	next->index = tmp_index;
 }
 
 void sa(t_list **stack_a)
@@ -36,7 +33,7 @@ void printList(t_list *node)
 {
 	while (node)
 	{
-		printf("%d, %d->", node->data, node->index);
+		printf("%d, ->", node->data);
 		node = node->next;
 	}
 	printf("NULL\n");
@@ -46,18 +43,15 @@ int main()
 {
 	t_list *node1 = malloc(sizeof(t_list));
 	node1->data = 10;
-	node1->index = 1;
 
 	t_list *node2 = malloc(sizeof(t_list));
 	node2->data = 20;
-	node2->index = 2;
 
 	t_list *node3 = malloc(sizeof(t_list));
 	node3->data = 30;
-	node3->index = 3;
 
 	node1->next = node2;
-	node2->next = NULL;
+	node2->next = node3;
 	node3->next = NULL;
 
 	printf("Original list\n");
@@ -68,7 +62,7 @@ int main()
 
 	free(node1);
 	free(node2);
-//	free(node3);
+	free(node3);
 
 	return 0;
 }
