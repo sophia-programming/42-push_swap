@@ -6,4 +6,11 @@ int Check_If_INT(long long num)
 	{
 		printf("Error\n");
 	}
+	return num;
+}
+
+int main()
+{
+	printf("%d\n", Check_If_INT(45));
+	printf("%d\n", Check_If_INT(2147483648));
 }
