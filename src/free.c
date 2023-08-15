@@ -11,3 +11,4 @@ void free_str(char **str)
 	}
 	free(str);
 }
+
