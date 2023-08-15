@@ -23,7 +23,13 @@ void swap(t_list **stack)
 void sa(t_list **stack_a)
 {
 	swap(stack_a);
-	ft_putendl("sa\n");
+	ft_putendl_fd("sa\n");
+}
+
+void sb(t_list **stack_b)
+{
+	swap(stack_b);
+	ft_putendl_fd(stack_b);
 }
 
 void printList(t_list *node)
