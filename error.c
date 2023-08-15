@@ -39,7 +39,7 @@ int main()
 	int size = sizeof(values) / sizeof(values[0]);
 	/*
 	 * 配列の個数を出している。配列全体のバイト数を
-	 * 要素一つのバイト数で割ることで要素の個数が出る。
+	 * 要素一つのバイト数で割ることで要素の個数が出る
 	 */
 
 	if (hasDuplicates(values, size))
