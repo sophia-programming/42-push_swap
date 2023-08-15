@@ -1,5 +1,4 @@
-#include "push_swap.h"
-#include <libc.h>
+#include "../push_swap.h"
 
 void swap(t_list **stack)
 {
@@ -20,15 +19,23 @@ void swap(t_list **stack)
 void sa(t_list **stack_a)
 {
 	swap(stack_a);
-	ft_putendl_fd("sa\n");
+	ft_putendl_fd("sa", 1);
 }
 
 void sb(t_list **stack_b)
 {
 	swap(stack_b);
-	ft_putendl_fd(stack_b);
+	ft_putendl_fd("sb", 1);
 }
 
+void ss(t_list **stack_a, t_list **stack_b)
+{
+	swap(stack_a);
+	swap(stack_b);
+	ft_putendl_fd("ss", 1)
+}
+
+/*
 void printList(t_list *node)
 {
 	while (node)
@@ -66,3 +73,4 @@ int main()
 
 	return 0;
 }
+ */
