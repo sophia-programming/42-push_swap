@@ -8,5 +8,6 @@ typedef struct s_list
 	int				index;
 }t_list;
 
+void swap(t_list **stack);
 
 #endif

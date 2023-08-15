@@ -20,6 +20,12 @@ void swap(t_list **stack)
 	next->index = tmp_index;
 }
 
+void sa(t_list **stack_a)
+{
+	swap(stack_a);
+	ft_putendl("sa\n");
+}
+
 void printList(t_list *node)
 {
 	while (node)
