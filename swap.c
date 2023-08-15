@@ -1,19 +1,19 @@
 #include "push_swap.h"
+#include <libc.h>
 
-void swap(t_list **stack)
+void swap(int *a, int *b)
 {
-	t_list *head;
-	t_list *next;
-	int tmp_data;
-	int tmp_index;
+	int tmp;
 
-	head = *stack;
-	next = (*stack)->next;
-	tmp_data = head->data;
-	head->data = next->data;
-	next->data = tmp_data;
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
 
-	tmp_index = head->index;
-	head->index = next->index;
-	next->index = tmp->index;
+int main()
+{
+	int a = 42;
+	int b = 24;
+	swap(&a, &b);
+	printf("%d %d\n", a, b);
 }
