@@ -14,6 +14,6 @@
 
 void swap(t_list **stack);
 void put_error(char *str);
-int Check_If_INT(long long num);
+bool Check_If_INT(long long num);
 
 #endif

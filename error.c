@@ -1,14 +1,43 @@
 #include "push_swap.h"
-//
-//int Check_If_INT(long long num)
-//{
-//	if ((num < INT_MIN) || (INT_MAX < num))
-//	{
-//		printf("Error\n");
-//	}
-//	return num;
-//}
 
+bool Check_IsNumber(char *num)
+{
+	int i = 0;
+
+	while (num[i])
+	{
+		if (ft_isdigit(num[i]))
+			return true;
+		i++;
+	}
+	return false;
+}
+
+int main()
+{
+	char *values[] = {"3", "6", "1", "s", "3s", "0"};
+	int size = sizeof(values) / sizeof(values[0]);
+	int i = 0;
+
+	while (i < size)
+	{
+		if (Check_IsNumber(values[i]))
+			printf("%s is a number!\n", values[i]);
+		else
+			printf("%s is not a number!\n", values[i]);
+		i++;
+	}
+	return 0;
+}
+
+bool Check_If_INT(long long num)
+{
+	if ((INT_MIN < num) || (num < INT_MAX))
+		return true;
+	else
+		return false;
+}
+//
 //int main()
 //{
 //	printf("%d\n", Check_If_INT(45));
@@ -33,17 +62,17 @@ bool hasDuplicates(int *numbers, int size)
 	return false; //重複なし
 }
 
-int main()
-{
-	int values[] = {2, 5, 4, 2};
-	int size = sizeof(values) / sizeof(values[0]);
-	/*
-	 * 配列の個数を出している。配列全体のバイト数を
-	 * 要素一つのバイト数で割ることで要素の個数が出る
-	 */
-
-	if (hasDuplicates(values, size))
-		printf("Duplicate numbers found.\n");
-	else
-		printf("No duplicate numbers.\n");
-}
+//int main()
+//{
+//	int values[] = {2, 5, 4, 2};
+//	int size = sizeof(values) / sizeof(values[0]);
+//	/*
+//	 * 配列の個数を出している。配列全体のバイト数を
+//	 * 要素一つのバイト数で割ることで要素の個数が出る
+//	 */
+//
+//	if (hasDuplicates(values, size))
+//		printf("Duplicate numbers found.\n");
+//	else
+//		printf("No duplicate numbers.\n");
+//}
