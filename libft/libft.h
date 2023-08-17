@@ -54,6 +54,7 @@ void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 
 typedef struct s_list
 {
+	int				data;
 	void			*content;
 	struct s_list	*next;
 }t_list;

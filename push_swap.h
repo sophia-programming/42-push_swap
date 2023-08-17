@@ -9,7 +9,6 @@ typedef struct s_list
 {
 	int				data;
 	struct s_list	*next;
-	int				index;
 }t_list;
 
 void swap(t_list **stack);
@@ -18,5 +17,6 @@ bool Check_If_INT(long long num);
 void sort_size3(t_list **stack_a);
 void sa(t_list **stack_a);
 void sb(t_list **stack_b);
+void push(t_list **stack_from, t_list **stack_to);
 
 #endif
