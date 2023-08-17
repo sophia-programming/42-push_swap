@@ -2,5 +2,5 @@
 
 void sort_size4(t_list **stack_a, t_list **stack_b)
 {
-
+	if (is_soate)
 }
