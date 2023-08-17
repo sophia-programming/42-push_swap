@@ -18,7 +18,7 @@ int min_of_list(t_list *head)
 	}
 	return min_value;
 }
-//
+
 //int main()
 //{
 //	t_list node1 = {0, NULL};
@@ -36,3 +36,22 @@ int min_of_list(t_list *head)
 //	else
 //		printf("the min of list is : %d\n", min_value);
 //}
+
+
+int get_distance_to_min(t_list **stack, int min)
+{
+	t_list *head;
+	int distance;
+
+	head = *stack;
+	distance = 0;
+
+	while (head)
+	{
+		if (head->index == min)
+			break;
+		distance++;
+		head = head->next;
+	}
+	return distance;
+}
