@@ -31,8 +31,7 @@ void	sort_size3(t_list **stack_a);
 void	sort_size4(t_list **stack_a, t_list **stack_b);
 void	sort_size5(t_list **stack_a, t_list **stack_b);
 
-int		min_of_list(t_list *head);
-int		find_min_in_list (const t_list *list);
+int		find_min_in_list(t_list *list);
 int		get_distance_to_min(t_list **stack, int min);
 
 void	put_error(char *str);

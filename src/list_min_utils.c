@@ -1,20 +1,20 @@
 #include "../push_swap.h"
 
-int	min_of_list(t_list *head)
+int  find_min_in_list (t_list *list)
 {
 	size_t	min_value;
-	t_list *current;
+	t_list *current_node;
 
 	if (!head)
 		return 0;
 	min_value = head->data;
-	current = head->next;
+	current_node = head->next;
 
-	while (current)
+	while (current_node)
 	{
-		if (current->data < min_value)
-			min_value = current->data;
-		current = current->next;
+		if (current_node->data < min_value)
+			min_value = current_node->data;
+		current_node = current_node->next;
 	}
 	return min_value;
 }
@@ -37,26 +37,9 @@ int	min_of_list(t_list *head)
 //		printf("the min of list is : %d\n", min_value);
 //}
 
-int  find_min_in_list (const t_list *list)
-{
-	if (!list)
-		return 0;
-	size_t	min_value = list->data;
-	const t_list *current = list->next;
-	while (current != NULL)
-	{
-		if (current->data < min_value)
-		{
-			min_value = current->data;
-		}
-		current = current->next;
-	}
-	return min_value;
-}
-
 int get_distance_to_min(t_list **stack, int min)
 {
-	t_list *head;
+	t_list	*head;
 	size_t	distance;
 
 	head = *stack;
@@ -69,5 +52,5 @@ int get_distance_to_min(t_list **stack, int min)
 		distance++;
 		head = head->next;
 	}
-	return distance;
+	return (distance);
 }
