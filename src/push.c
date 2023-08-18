@@ -1,11 +1,13 @@
 #include "../push_swap.h"
 
-void push(t_list **stack_from, t_list **stack_to)
+bool	push(t_list **stack_from, t_list **stack_to)
 {
 	t_list	*tmp;
 	t_list	*head_to;
 	t_list	*head_from;
 
+	if (ft_listsize(stack_from) == 0)
+		return (false);
 	head_to = *stack_to;
 	tmp = *stack_from;
 	head_from = *stack_from;
@@ -23,55 +25,19 @@ void push(t_list **stack_from, t_list **stack_to)
 		tmp->next = head_to;
 		*stack_to = tmp;
 	}
-}
-
-int main()
-{
-	t_list *stack_from = NULL;
-	t_list *stack_to = NULL;
-
-	// Create nodes for stack_from
-	for (int i = 5; i >= 1; i--)
-	{
-		t_list *new_node = malloc(sizeof(t_list));
-		if (!new_node)
-			return 1;
-		new_node->data = i;
-		new_node->next = stack_from;
-		stack_from = new_node;
-	}
-	// Test the push function
-	push(&stack_from, &stack_to);
-	// Print stack_to
-	t_list *current = stack_to;
-	printf("stack_to: ");
-	while (current)
-	{
-		printf("%d\n ", current->data);
-		current = current->next;
-	}
-	// Free memory
-	while (stack_from)
-	{
-		t_list *temp = stack_from;
-		stack_from = stack_from->next;
-		free(temp);
-	}
-	while (stack_to)
-	{
-		t_list *temp = stack_to;
-		stack_to = stack_to->next;
-		free(temp);
-	}
-	return 0;
+	return (true);
 }
 
 void pa(t_list **stack_b, t_list **stack_a)
 {
+	if (push(stack_b, stack_a) == false)
+		return (false);
 	ft_putendl_fd("pa", 1);
 }
 
 void pb(t_list **stack_a, t_list **stack_b)
 {
+	if (push(stack_a, stack_b) == false)
+		return (false);
 	ft_putendl_fd("pb", 1);
 }
