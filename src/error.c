@@ -1,5 +1,11 @@
 #include "../push_swap.h"
 
+void put_error(char *str)
+{
+	ft_putendl_fd(str, 2);
+	exit(0);
+}
+
 bool Check_IsNumber(char *num)
 {
 	int i = 0;
@@ -30,7 +36,7 @@ bool Check_IsNumber(char *num)
 //	return 0;
 //}
 
-bool Check_If_INT(long long num)
+bool Check_If_INT(int64_t num)
 {
 	if ((INT_MIN < num) || (num < INT_MAX))
 		return true;
@@ -46,8 +52,11 @@ bool Check_If_INT(long long num)
 
 bool hasDuplicates(int *numbers, int size)
 {
-	int i = 0;
-	int j = i + 1;
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	j = i + 1;
 
 	while (i < (size - 1))//最後の要素はすでに他の要素と比較されているため重複の可能性なし。
 	{
@@ -76,3 +85,20 @@ bool hasDuplicates(int *numbers, int size)
 //	else
 //		printf("No duplicate numbers.\n");
 //}
+
+void check_args(char **args, int start)
+{
+	size_t	num;
+
+	while (args[start])
+	{
+		if (!Check_IsNumber(args[start]))
+			put_error("Error");
+		num = ft_atoi(args[start]);
+		if (!Check_If_INT(num))
+			put_error("Error");
+		if (hasDuplicates((int *)num, size))
+			put_error("Error");
+		start++;
+	}
+}

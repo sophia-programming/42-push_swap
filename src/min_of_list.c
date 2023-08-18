@@ -37,8 +37,24 @@ int min_of_list(t_list *head)
 //		printf("the min of list is : %d\n", min_value);
 //}
 
+int  find_min_in_list (const t_list *list)
+{
+	if (!list)
+		return 0;
+	int min_value = list->data;
+	const t_list *current = list->next;
+	while (current != NULL)
+	{
+		if (current->data < min_value)
+		{
+			min_value = current->data;
+		}
+		current = current->next;
+	}
+	return min_value;
+	}
 
-int get_distance_to_min(t_list **stack, int min)
+		int get_distance_to_min(t_list **stack, int min)
 {
 	t_list *head;
 	int distance;
