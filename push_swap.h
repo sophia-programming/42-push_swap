@@ -1,10 +1,9 @@
 #ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-#include "../libft/libft.h"
-#include "../ft_printf/new_printf/ft_printf.h"
-
-#include <libc.h>
+# include "../libft/libft.h"
+# include "../ft_printf/new_printf/ft_printf.h"
+# include <libc.h>
 
 typedef struct s_list
 {
