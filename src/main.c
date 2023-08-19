@@ -57,7 +57,7 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (1);
 	setup_stack(&stack_a, &stack_b, argc, argv);
-	if (is_sorted(&stack_a) == true || ft_lstsize(stack_a) == 0)
+	if (is_sorted(&stack_a) == true || ft_lstsize(&stack_a) == 0)
 	{
 		free_list(stack_a);
 		return (2);

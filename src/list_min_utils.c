@@ -12,22 +12,22 @@
 
 #include "../push_swap.h"
 
-int	find_min_in_list(t_list *list)
+int	find_min_in_list(t_list **list, int	min_value)
 {
-	size_t	min_value;
 	t_list	*current_node;
+	int		min;
 
-	if (!head)
+	current_node = *list;
+	min = current_node->index;
+	if (!current_node)
 		return (0);
-	min_value = head->data;
-	current_node = head->next;
 	while (current_node)
 	{
-		if (current_node->data < min_value)
-			min_value = current_node->data;
+		if ((current_node->index < min) && current_node->index != min_value)
+			min = current_node->index;
 		current_node = current_node->next;
 	}
-	return (min_value);
+	return (min);
 }
 
 //int main()

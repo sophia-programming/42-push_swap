@@ -20,7 +20,7 @@ t_list	*ft_lstnew(int data)
 	if (!newnode)
 		return (NULL);
 	newnode->data = data;
-	newnode->index = NEVEREDITED;
+	newnode->index = NEVER_EDITED;
 	newnode->next = NULL;
 	return (newnode);
 }

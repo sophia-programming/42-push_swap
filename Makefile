@@ -10,66 +10,70 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	push_swap
-CC		=	cc
+NAME		=	push_swap
+CC			=	cc
 DEBUGFLAGS	=	-g3 -fsanitize=address
-CFLAGS	=	-Wall -Werror -Wextra $(DEBUGFLAGS)
+CFLAGS		=	-Wall -Werror -Wextra $(DEBUGFLAGS)
 
-SRCS	=	src/error.c\
-			free.c\
-			is_sorted.c\
-			list_min_utils.c\
-			main.c\
-			push.c\
-			radix.c\
-			reverse_rotate.c\
-			rotate.c\
-			sort_size3.c\
-			sort_size4.c\
-			sort_size5.c\
-			sort_under_5.c\
-			swap.c\
-			update_index.c
+SRCS		=	src/error.c\
+				src/free.c\
+				src/is_sorted.c\
+				src/list_min_utils.c\
+				src/main.c\
+				src/push.c\
+				src/radix.c\
+				src/reverse_rotate.c\
+				src/rotate.c\
+				src/sort_size3.c\
+				src/sort_size4.c\
+				src/sort_size5.c\
+				src/sort_under_5.c\
+				src/swap.c\
+				src/update_index.c\
+				list/ft_lstadd_back.c\
+				list/ft_lstadd_front.c\
+				list/ft_lstlast.c\
+				list/ft_lstnew.c\
+				list/ft_lstsize.c
 			
-OBJS	=	$(SRCS:.c=.o)
+OBJS	=	$(SRCS:%.c=%.o)
 
 LIBFT_FLAG	=	-L./libft -lft
 FT_PRINTFFLAG	=	-L./ft_printf -lftprintf
 
+all	:	$(NAME)
 
-all : $(NAME)
-
-$(NAME) : $(OBJS)
+$(NAME)	:	$(OBJS)
 		make -C ./libft
 		make -C ./ft_printf
 		$(CC) $(CFLAGS) $(OBJS) $(LIBFT_FLAG) $(FT_PRINTFFLAG) -o $(NAME)
 		
-lib :
+lib	:
 		make -C ./libft
 		
-ft_printf :
+ft_printf	:
 		make -C ./ft_printf
 		
-.c.o :
+.c.o	:
 		$(CC) $(CFLAGS) -I include -c $< -o $@
 		
-clean :
+clean	:
 		make -C ./libft clean
 		make -C ./ft_printf clean
 		$(RM) $(OBJS)
 		
-fclean : clean
+fclean	:	clean
 		make -C ./libft fclean
 		make -C ./ft_printf fclean
 		$(RM) $(NAME) $(OBJS)
 		
-re :	fclean all
+re	:	fclean all
 
-test: all
-	@chmod +x ./test.sh
-	@./test.sh
+test	:	all
+		@chmod +x ./test.sh
+		@./test.sh
 	
-.PHONY: all clean fclean re lib ft_printf
+.PHONY	:	all clean fclean re lib ft_printf
 
 
 

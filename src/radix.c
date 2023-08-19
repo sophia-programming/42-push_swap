@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-int	count_max_bits(t_list **stack)
+size_t	count_max_bits(t_list **stack)
 {
 	t_list	*head;
 	size_t	max_index;
@@ -33,7 +33,7 @@ int	count_max_bits(t_list **stack)
 }
 
 void	handle_processbits(t_list **stack_a, t_list **stack_b, \
-	int size_of_stack_a, int max_bits)
+	size_t size_of_stack_a, size_t	max_bits)
 {
 	t_list	*head_of_stack_a;
 	size_t	i;

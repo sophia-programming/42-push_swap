@@ -18,7 +18,7 @@ bool	push(t_list **stack_from, t_list **stack_to)
 	t_list	*head_to;
 	t_list	*head_from;
 
-	if (ft_listsize(stack_from) == 0)
+	if (ft_lstsize(stack_from) == 0)
 		return (false);
 	head_to = *stack_to;
 	tmp = *stack_from;
@@ -39,16 +39,18 @@ bool	push(t_list **stack_from, t_list **stack_to)
 	return (true);
 }
 
-void	pa(t_list **stack_b, t_list **stack_a)
+bool	pa(t_list **stack_b, t_list **stack_a)
 {
 	if (push(stack_b, stack_a) == false)
 		return (false);
 	ft_putendl_fd("pa", 1);
+	return (true);
 }
 
-void	pb(t_list **stack_a, t_list **stack_b)
+bool	pb(t_list **stack_a, t_list **stack_b)
 {
 	if (push(stack_a, stack_b) == false)
 		return (false);
 	ft_putendl_fd("pb", 1);
+	return (true);
 }

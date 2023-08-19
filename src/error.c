@@ -40,7 +40,7 @@ bool	check_if_int(int64_t num)
 		return (false);
 }
 
-bool	hasduplicates(int *numbers, int size)
+bool	hasduplicates(int *numbers, size_t	size)
 {
 	size_t	i;
 	size_t	j;
@@ -66,12 +66,12 @@ void	check_args(char **args, int start)
 
 	while (args[start])
 	{
-		if (!Check_IsNumber(args[start]))
+		if (!check_isnumber(args[start]))
 			put_error("Error");
 		num = ft_atoi(args[start]);
-		if (!Check_If_INT(num))
+		if (!check_if_int(num))
 			put_error("Error");
-		if (hasDuplicates((int *)num, size))
+		if (hasduplicates((int *)num, start))
 			put_error("Error");
 		start++;
 	}

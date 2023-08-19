@@ -26,23 +26,26 @@ bool	rotate(t_list **stack)
 	return (true);
 }
 
-void	ra(t_list **stack_a)
+bool	ra(t_list **stack_a)
 {
 	if (rotate(stack_a) == false)
 		return (false);
 	ft_putendl_fd("ra", 1);
+	return (true);
 }
 
-void	rb(t_list **stack_b)
+bool	rb(t_list **stack_b)
 {
 	if (rotate(stack_b) == false)
 		return (false);
 	ft_putendl_fd("rb", 1);
+	return (true);
 }
 
-void	rr(t_list **stack_a, t_list **stack_b)
+bool	rr(t_list **stack_a, t_list **stack_b)
 {
 	if (rotate(stack_a) == false || rotate(stack_b) == false)
 		return (false);
 	ft_putendl_fd("rr", 1);
+	return (true);
 }
