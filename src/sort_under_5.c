@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_under_5.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/19 16:37:12 by oaoba             #+#    #+#             */
+/*   Updated: 2023/08/19 16:37:39 by oaoba            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
-void sort_under_5(t_list **stack_a, t_list **stack_b)
+void	sort_under_5(t_list **stack_a, t_list **stack_b)
 {
 	size_t	lst_size;
 

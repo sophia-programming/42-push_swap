@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   radix.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/19 16:36:51 by oaoba             #+#    #+#             */
+/*   Updated: 2023/08/19 16:37:39 by oaoba            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 int	count_max_bits(t_list **stack)
@@ -20,8 +32,8 @@ int	count_max_bits(t_list **stack)
 	return (max_bits);
 }
 
-void	handle_processBits(t_list **stack_a, t_list **stack_b, \
-	int	size_of_stack_a, int max_bits)
+void	handle_processbits(t_list **stack_a, t_list **stack_b, \
+	int size_of_stack_a, int max_bits)
 {
 	t_list	*head_of_stack_a;
 	size_t	i;
@@ -46,12 +58,12 @@ void	handle_processBits(t_list **stack_a, t_list **stack_b, \
 	}
 }
 
-void radix_sort(t_list **stack_a, t_list **stack_b)
+void	radix_sort(t_list **stack_a, t_list **stack_b)
 {
 	size_t	size_of_stack_a;
 	size_t	max_bits;
 
 	size_of_stack_a = ft_lstsize(stack_a);
 	max_bits = count_max_bits(stack_a);
-	handle_processBits(stack_a, stack_b, size_of_stack_a, max_bits);
+	handle_processbits(stack_a, stack_b, size_of_stack_a, max_bits);
 }

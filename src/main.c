@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/19 16:36:45 by oaoba             #+#    #+#             */
+/*   Updated: 2023/08/19 16:37:39 by oaoba            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
-void selective_sort(t_list **stack_a, t_list **stack_b)
+void	selective_sort(t_list **stack_a, t_list **stack_b)
 {
 	if (ft_lstsize(stack_a) <= 5)
 		sort_under_5(stack_a, stack_b);
@@ -31,19 +43,19 @@ void	init_stack_a(t_list **stack_a, int argc, char **argv)
 		free_str(args);
 }
 
-void setup_stack(t_list **stack_a, t_list **stack_b, int argc, char **argv)
+void	setup_stack(t_list **stack_a, t_list **stack_b, int argc, char **argv)
 {
 	init_stack_a(stack_a, argc, argv);
 	*stack_b = NULL;
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_list *stack_a;
-	t_list *stack_b;
+	t_list	*stack_a;
+	t_list	*stack_b;
 
 	if (argc < 2)
-		return 1;
+		return (1);
 	setup_stack(&stack_a, &stack_b, argc, argv);
 	if (is_sorted(&stack_a) == true || ft_lstsize(stack_a) == 0)
 	{

@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_size3.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/19 16:37:02 by oaoba             #+#    #+#             */
+/*   Updated: 2023/08/19 16:37:39 by oaoba            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
-void sort_size3(t_list **stack_a, int min, int next_min)
+void	sort_size3(t_list **stack_a, int min, int next_min)
 {
-	t_list *head;
-	head = *stack_a;
+	t_list	*head;
 
+	head = *stack_a;
 	if ((head->index == min) && (head->next->index != next_min))
 	{
 		sa(stack_a);

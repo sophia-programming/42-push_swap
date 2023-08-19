@@ -1,22 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   list_min_utils.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/19 16:36:42 by oaoba             #+#    #+#             */
+/*   Updated: 2023/08/19 16:37:39 by oaoba            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
-int  find_min_in_list (t_list *list)
+int	find_min_in_list(t_list *list)
 {
 	size_t	min_value;
-	t_list *current_node;
+	t_list	*current_node;
 
 	if (!head)
-		return 0;
+		return (0);
 	min_value = head->data;
 	current_node = head->next;
-
 	while (current_node)
 	{
 		if (current_node->data < min_value)
 			min_value = current_node->data;
 		current_node = current_node->next;
 	}
-	return min_value;
+	return (min_value);
 }
 
 //int main()
@@ -37,18 +48,17 @@ int  find_min_in_list (t_list *list)
 //		printf("the min of list is : %d\n", min_value);
 //}
 
-int get_distance_to_min(t_list **stack, int min)
+int	get_distance_to_min(t_list **stack, int min)
 {
 	t_list	*head;
 	size_t	distance;
 
 	head = *stack;
 	distance = 0;
-
 	while (head)
 	{
 		if (head->index == min)
-			break;
+			break ;
 		distance++;
 		head = head->next;
 	}
