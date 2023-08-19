@@ -35,12 +35,12 @@ SRCS	=	src/error.c\
 			list/ft_lstlast.c\
 			list/ft_lstnew.c\
 			list/ft_lstsize.c
-			
+
 OBJS	=	$(SRCS:%.c=%.o)
 
-LIBFTFLAG		=	-L./libft -lft
+LIBFTFLAG	=	-L./libft -lft
 FT_PRINTFFLAG	=	-L./ft_printf -lftprintf
-		
+
 all: $(NAME)
 
 $(NAME): $(OBJS)
@@ -50,7 +50,7 @@ $(NAME): $(OBJS)
 
 lib:
 	make -C ./libft
-	
+
 ft_printf:
 	make -C ./ft_printf
 
@@ -65,7 +65,7 @@ clean:
 fclean:	clean
 	make -C ./libft fclean
 	make -C ./ft_printf fclean
-	$(RM) $(NAME) $(OBJS)
+	$(RM) $(OBJS)
 
 re:		fclean all
 
