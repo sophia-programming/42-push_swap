@@ -43,12 +43,6 @@ bool Check_If_INT(int64_t num)
 	else
 		return false;
 }
-//
-//int main()
-//{
-//	printf("%d\n", Check_If_INT(45));
-//	printf("%d\n", Check_If_INT(2147483648));
-//}
 
 bool hasDuplicates(int *numbers, int size)
 {

@@ -26,7 +26,7 @@ void	init_stack_a(t_list **stack_a, int argc, char **argv)
 		new = ft_lstnew(ft_atoi(args[i++]));
 		ft_lstadd_back(stack_a, new);
 	}
-	update_stack_indexes(stack_a);
+	update_indexes_of_list(stack_a);
 	if (argc == 2)
 		free_str(args);
 }
@@ -43,13 +43,13 @@ int main(int argc, char **argv)
 	t_list *stack_b;
 
 	if (argc < 2)
-		return 0;
+		return 1;
 	setup_stack(&stack_a, &stack_b, argc, argv);
-	if (is_sorted(&stack_a) == true || ft_lstsize(&stack_a) == 0)
+	if (is_sorted(&stack_a) == true || ft_lstsize(stack_a) == 0)
 	{
 		free_list(stack_a);
 		return (2);
 	}
-	sort_stack(&stack_a, &stack_b);
+	selective_sort(&stack_a, &stack_b);
 	free_list(stack_a);
 }

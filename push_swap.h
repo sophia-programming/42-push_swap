@@ -9,6 +9,7 @@ typedef struct s_list
 {
 	int				data;
 	struct s_list	*next;
+	int				index;
 }t_list;
 
 void	swap(t_list **stack);
@@ -34,9 +35,18 @@ void	sort_under_5(t_list **stack_a, t_list **stack_b)
 
 int		find_min_in_list(t_list *list);
 int		get_distance_to_min(t_list **stack, int min);
+void	update_min_index(t_list **stack, size_t index);
+void	update_indexes_of_list(t_list **stack);
+int		count_max_bits(t_list **stack);
+void	handle_processBits(t_list **stack_a, t_list **stack_b,\
+		int	size_of_stack_a, int max_bits)
+void	radix_sort(t_list **stack_a, t_list **stack_b);
 
 void	put_error(char *str);
+bool	Check_IsNumber(char *num);
 bool	Check_If_INT(long long num);
+bool	hasDuplicates(int *numbers, int size);
+void	check_args(char **args, int start);
 void	free_list(t_list *list);
 void	free_str(char **str);
 void	selective_sort(t_list **stack_a, t_list **stack_b);
