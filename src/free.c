@@ -2,7 +2,7 @@
 
 void	free_list(t_list *list)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	while (list)
 	{
@@ -24,4 +24,3 @@ void	free_str(char **str)
 	}
 	free(str);
 }
-

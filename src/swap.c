@@ -9,7 +9,7 @@ void swap(t_list **stack)
 	head->data = next->data;
 	next->data = tmp_data;
 	/*
-	 * swapで考えるとわかりやすい。。
+	 * シンプルswapで考えるとわかりやすい。。
 	 * 　tmp = *a;   //tmp_data = head->data;
 	  	 *a = *b;   //head->data = next->data;
 		 *b = tmp;  //next->data = tmp_data;
