@@ -46,7 +46,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	make -C ./libft
 	make -C ./ft_printf
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFTFLAG) $(FT_PRINTFFLAG) -o  $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFTFLAG) $(FT_PRINTFFLAG) -o $(NAME)
 
 lib:
 	make -C ./libft
@@ -55,22 +55,20 @@ ft_printf:
 	make -C ./ft_printf
 
 .c.o:
-	$(CC) $(CFLAGS) -I include -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	make -C ./libft clean
+	make -C libft clean
 	make -C ./ft_printf clean
 	$(RM) $(OBJS)
 
 fclean:	clean
 	make -C ./libft fclean
 	make -C ./ft_printf fclean
-	$(RM) $(OBJS)
-
+	$(RM) $(NAME) $(OBJS)
 re:		fclean all
 
 test: all
 	@chmod +x ./test.sh
 	@./test.sh
-
 .PHONY:	all clean fclean re lib ft_printf

@@ -19,8 +19,6 @@ int	find_min_in_list(t_list **list, int	min_value)
 
 	current_node = *list;
 	min = current_node->index;
-	if (!current_node)
-		return (0);
 	while (current_node)
 	{
 		if ((current_node->index < min) && current_node->index != min_value)

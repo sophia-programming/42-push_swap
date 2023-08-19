@@ -14,14 +14,14 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
-# include "ft_printf/new_printf/ft_printf.h"
+# include "ft_printf/ft_printf.h"
 # include <libc.h>
 
 typedef struct s_list
 {
-	size_t			data;
+	int				data;
 	struct s_list	*next;
-	size_t			index;
+	int				index;
 }t_list;
 
 # define NEVER_EDITED -1
@@ -47,7 +47,7 @@ t_list	*ft_lstnew(int data);
 size_t	ft_lstsize(t_list **lst);
 
 bool	is_sorted(t_list **stack);
-void	mainlogic_of_sort_size3(t_list **stack_a, t_list *head, size_t min, size_t next_min);
+void	mainlogic_of_sort_size3(t_list **stack_a, t_list *head, int min, int next_min);
 void	sort_size3(t_list **stack_a);
 void	sort_size4(t_list **stack_a, t_list **stack_b);
 void	sort_size5(t_list **stack_a, t_list **stack_b);
