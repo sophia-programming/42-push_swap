@@ -10,18 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include"libft.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	size_t	i;
-	size_t	s_len;
+	unsigned int	i;
 
 	i = 0;
 	if (s == NULL || f == NULL)
 		return ;
-	s_len = ft_strlen(s);
-	while (i < s_len)
+	while (i < ft_strlen(s))
 	{
 		f(i, &s[i]);
 		i++;
@@ -33,7 +31,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 //	if ('a' <= *c && *c <= 'z')
 //		*c = (*c - 'a' + 'A');
 //}
-//
+
 //#include<stdio.h>
 //int main()
 //{

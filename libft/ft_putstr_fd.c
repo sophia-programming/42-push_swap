@@ -14,25 +14,15 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	ssize_t	ret;
-
-	if (s == NULL)
-		return ;
-	ret = write(fd, s, ft_strlen(s));
-	if (ret == -1)
-		ft_putstr_fd("Error: write()", 2);
+	if (s != NULL)
+		write(fd, s, ft_strlen(s));
 }
 
-//#include <limits.h>
-//#include <libc.h>
 //int main(void)
 //{
-//	ft_putstr_fd("neko\n", 1);
+//	ft_putstr_fd("neko\n", 0);
 //	ft_putstr_fd("42 Tokyo\n", 1);
-//	ft_putstr_fd("Tokyo\n", 1);
-//	ft_putstr_fd("Paris\n", 1);
-//	ft_putstr_fd(NULL, 1);
-//	char *s = malloc(sizeof(char) * (INT_MAX + 2L));
-//	memset(s, 'a', INT_MAX + 1L);
-//	ft_putstr_fd(s, 1);
+//	ft_putstr_fd("Tokyo\n", 2);
+//	ft_putstr_fd("Paris\n", 5);
+//	ft_putstr_fd(NULL, 5);
 //}

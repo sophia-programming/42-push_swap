@@ -10,15 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include"libft.h"
 
 void	ft_putchar_fd(char c, int fd)
 {
-	ssize_t	ret;
-
-	ret = write(fd, &c, 1);
-	if (ret == -1)
-		ft_putstr_fd("Error: write()", 2);
+	write(fd, &c, 1);
 }
 
 //int main(void)
