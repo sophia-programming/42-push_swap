@@ -12,14 +12,16 @@
 
 #include "../push_swap.h"
 
-int	ft_lstsize(t_list *lst)
+size_t	ft_lstsize(t_list **lst)
 {
-	int	size;
+	size_t	size;
+	t_list	*tmp;
 
 	size = 0;
-	while (lst)
+	tmp = *lst;
+	while (tmp)
 	{
-		lst = lst->next;
+		tmp = tmp->next;
 		size++;
 	}
 	return (size);

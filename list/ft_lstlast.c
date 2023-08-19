@@ -12,12 +12,16 @@
 
 #include "../push_swap.h"
 
-t_list	*ft_lstlast(t_list *lst)
+t_list	*ft_lstlast(t_list **lst)
 {
-	if (lst)
+	t_list	*tmp;
+
+	tmp = *lst;
+	while (tmp->next)
 	{
-		while (lst->next)
-			lst = lst->next;
+		tmp = tmp->next;
+		if (tmp->next == NULL)
+			return (tmp);
 	}
-	return (lst);
+	return (tmp);
 }

@@ -12,14 +12,15 @@
 
 #include "../push_swap.h"
 
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstnew(int data)
 {
 	t_list	*newnode;
 
 	newnode = malloc(sizeof(t_list));
-	if (newnode == NULL)
+	if (!newnode)
 		return (NULL);
+	newnode->data = data;
+	newnode->index = NEVEREDITED;
 	newnode->next = NULL;
-	newnode->content = content;
 	return (newnode);
 }
