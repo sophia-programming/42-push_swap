@@ -1,15 +1,13 @@
 #include "../include/push_swap.h"
 
-void	free_stack(t_list *stack)
+void	free_list(t_list *list)
 {
-	t_list	*head;
 	t_list	*tmp;
 
-	head = stack;
-	while (head)
+	while (list)
 	{
-		tmp = head;
-		head = head->next;
+		tmp = list;
+		list = list->next;
 		free(tmp);
 	}
 }
@@ -20,7 +18,9 @@ void	free_str(char **str)
 
 	i = 0;
 	while (str[i])
-		free(str[i++]);
+	{
+		free(str[i]);
+		i++;
+	}
 	free(str);
-	return ;
 }

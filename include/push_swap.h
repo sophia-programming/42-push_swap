@@ -47,7 +47,7 @@ void	sort_size5(t_list **stack_a, t_list **stack_b);
 void	simple_sort(t_list **stack_a, t_list **stack_b);
 void	radix_sort(t_list **stack_a, t_list **stack_b);
 int		count_max_bits(t_list **stack);
-void	free_stack(t_list *stack);
+void	free_list(t_list *list);
 void	check_args(char **args, int start);
 void	put_error(char *str);
 int		check_dup(char **args, int num, int i);
