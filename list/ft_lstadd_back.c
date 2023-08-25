@@ -1,28 +1,17 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/19 16:33:58 by oaoba             #+#    #+#             */
-/*   Updated: 2023/08/19 16:34:05 by oaoba            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "../push_swap.h"
-
-void	ft_lstadd_back(t_list **lst, t_list *new)
+#include "../include/push_swap.h"
+void	ft_lstadd_back(t_list **list, t_list *new)
 {
-	t_list	*last_node;
+	t_list	*last;
 
-	if (lst == NULL || new == NULL)
-		return ;
-	if (*lst == NULL)
+	if (*list)
 	{
-		*lst = new;
-		return ;
+		last = ft_lstlast(list);
+		last->next = new;
+		new->next = NULL;
 	}
-	last_node = ft_lstlast(lst);
-	last_node->next = new;
+	else
+	{
+		*list = new;
+		(*list)->next = NULL;
+	}
 }

@@ -1,28 +1,16 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/19 16:34:49 by oaoba             #+#    #+#             */
-/*   Updated: 2023/08/19 16:34:53 by oaoba            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "../include/push_swap.h"
 
-#include "../push_swap.h"
-
-size_t	ft_lstsize(t_list **lst)
+size_t	ft_lstsize(t_list **list)
 {
-	size_t	size;
+	size_t	i;
 	t_list	*tmp;
 
-	size = 0;
-	tmp = *lst;
+	i = 0;
+	tmp = *list;
 	while (tmp)
 	{
 		tmp = tmp->next;
-		size++;
+		i++;
 	}
-	return (size);
+	return (i);
 }

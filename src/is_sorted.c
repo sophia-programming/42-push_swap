@@ -1,18 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   is_sorted.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/19 16:36:39 by oaoba             #+#    #+#             */
-/*   Updated: 2023/08/19 16:37:39 by oaoba            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "../include/push_swap.h"
 
-#include "../push_swap.h"
-
-bool	is_sorted(t_list **stack)
+int	is_sorted(t_list **stack)
 {
 	t_list	*head;
 
@@ -22,7 +10,25 @@ bool	is_sorted(t_list **stack)
 		if (head->data <= head->next->data)
 			head = head->next;
 		else
-			return (false);
+			return (0);
 	}
-	return (true);
+	return (1);
 }
+/*
+
+int	 main()
+{
+	t_list *test = ft_lstnew(29);
+	t_list *test2 = ft_lstnew(29);
+	t_list *test3 = ft_lstnew(29);
+	t_list *test4 = ft_lstnew(29);
+
+	ft_lstadd_back(&test, test2);
+	ft_lstadd_back(&test, test3);
+	ft_lstadd_back(&test, test4);
+	if (is_sorted(&test))
+		ft_printf("works");
+	else
+		ft_printf("does'nt work");
+	return(0);
+}*/

@@ -1,74 +1,33 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/08/19 16:37:24 by oaoba             #+#    #+#              #
-#    Updated: 2023/08/19 16:37:39 by oaoba            ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+NAME = push_swap
+CC = cc
+CFLAGS = -Wall -Wextra -Werror -g
+LIBFT_PATH = ./libft/
+SRCS = src/main.c src/rotate.c src/simple_sort5.c \
+		src/cordinate_comp.c src/push.c src/simple_sort.c src/simple_sort_utils.c \
+		src/free.c src/radix.c src/simple_sort3.c src/swap.c src/is_sorted.c \
+		src/reverse_rotate.c src/simple_sort4.c list/ft_lstadd_back.c  \
+		list/ft_lstlast.c list/ft_lstsize.c list/ft_lstadd_front.c \
+		list/ft_lstnew.c list/ft_printlst_index_data.c src/error_handle.c
 
-NAME	=	push_swap
-CC		=	cc
-DEBUGFLAGS	=	-g3 -fsanitize=address
-CFLAGS	=	-Wall -Wextra -Werror $(DEBUGFLAGS)
+OBJS = $(SRCS:%.c=%.o)
+LIBFTMAKE = $(MAKE) -C ./libft
 
-SRCS	=	src/error.c\
-			src/free.c\
-			src/is_sorted.c\
-			src/list_min_utils.c\
-			src/main.c\
-			src/push.c\
-			src/radix.c\
-			src/reverse_rotate.c\
-			src/rotate.c\
-			src/sort_size3.c\
-			src/sort_size4.c\
-			src/sort_size5.c\
-			src/sort_under_5.c\
-			src/swap.c\
-			src/update_index.c\
-			list/ft_lstadd_back.c\
-			list/ft_lstadd_front.c\
-			list/ft_lstlast.c\
-			list/ft_lstnew.c\
-			list/ft_lstsize.c
-
-OBJS	=	$(SRCS:%.c=%.o)
-
-LIBFTFLAG	=	-L./libft -lft
-FT_PRINTFFLAG	=	-L./ft_printf -lftprintf
-
+.PHONY : all
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	make -C ./libft
-	make -C ./ft_printf
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFTFLAG) $(FT_PRINTFFLAG) -o $(NAME)
+		$(LIBFTMAKE)
+		$(CC) $(CFLAGS) $(OBJS) $(LIBFT_PATH)libft.a -o $(NAME)
 
-lib:
-	make -C ./libft
+.PHONY : clean
+clean :
+		$(LIBFTMAKE) clean
+		$(RM) $(OBJS)
 
-ft_printf:
-	make -C ./ft_printf
+.PHONY : fclean
+fclean: clean
+		$(LIBFTMAKE) fclean
+		$(RM) $(NAME)
 
-.c.o:
-	$(CC) $(CFLAGS) -c $< -o $@
-
-clean:
-	make -C libft clean
-	make -C ./ft_printf clean
-	$(RM) $(OBJS)
-
-fclean:	clean
-	make -C ./libft fclean
-	make -C ./ft_printf fclean
-	$(RM) $(NAME) $(OBJS)
-re:		fclean all
-
-test: all
-	@chmod +x ./test.sh
-	@./test.sh
-.PHONY:	all clean fclean re lib ft_printf
+.PHONY : re
+re : fclean all

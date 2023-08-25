@@ -1,21 +1,9 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/19 16:36:45 by oaoba             #+#    #+#             */
-/*   Updated: 2023/08/19 16:37:39 by oaoba            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "../include/push_swap.h"
 
-#include "../push_swap.h"
-
-void	selective_sort(t_list **stack_a, t_list **stack_b)
+void	sort_stack(t_list **stack_a, t_list **stack_b)
 {
-	if (ft_lstsize(stack_a) <= 5)
-		sort_under_5(stack_a, stack_b);
+	if (ft_lstsize(*stack_a) <= 5)
+		simple_sort(stack_a, stack_b);
 	else
 		radix_sort(stack_a, stack_b);
 }
@@ -24,44 +12,45 @@ void	init_stack_a(t_list **stack_a, int argc, char **argv)
 {
 	t_list	*new;
 	char	**args;
-	size_t	i;
+	int		i;
 
 	i = 0;
 	if (argc == 2)
 		args = ft_split(argv[1], ' ');
 	else
-		args = &argv[1];
+	{
+		i = 1;
+		args = argv;
+	}
 	check_args(args, i);
-	*stack_a = ft_lstnew(ft_atoi(args[i++]));
+	*stack_a = ft_lstnew(ft_atoi(args[i]));
+	i++;
 	while (args[i])
 	{
-		new = ft_lstnew(ft_atoi(args[i++]));
+		new = ft_lstnew(ft_atoi(args[i]));
 		ft_lstadd_back(stack_a, new);
+		i++;
 	}
-	update_indexes_of_list(stack_a);
+	cordinate_comp(stack_a);
 	if (argc == 2)
 		free_str(args);
 }
 
-void	setup_stack(t_list **stack_a, t_list **stack_b, int argc, char **argv)
-{
-	init_stack_a(stack_a, argc, argv);
-	*stack_b = NULL;
-}
-
-int	main(int argc, char **argv)
+int	main(int argc,	char **argv)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
 
 	if (argc < 2)
 		return (1);
-	setup_stack(&stack_a, &stack_b, argc, argv);
-	if (is_sorted(&stack_a) == true || ft_lstsize(&stack_a) == 0)
+	init_stack_a(&stack_a, argc, argv);
+	stack_b = NULL;
+	if (is_sorted(&stack_a) || ft_lstsize(stack_a) == 1)
 	{
-		free_list(stack_a);
-		return (2);
+		free_stack(stack_a);
+		return (0);
 	}
-	selective_sort(&stack_a, &stack_b);
-	free_list(stack_a);
+	sort_stack(&stack_a, &stack_b);
+	free_stack(stack_a);
+	return (0);
 }

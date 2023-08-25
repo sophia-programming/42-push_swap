@@ -1,24 +1,13 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/19 16:36:55 by oaoba             #+#    #+#             */
-/*   Updated: 2023/08/19 16:37:39 by oaoba            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "../push_swap.h"
-
-void	reverse_rotate(t_list **stack)
+#include "../include/push_swap.h"
+int	reverse_rotate(t_list **stack)
 {
 	t_list	*head;
-	t_list	*end;
+	t_list	*tail;
 
+	if (ft_lstsize(stack) < 2)
+		return (-1);
 	head = *stack;
-	end = ft_lstlast(stack);
+	tail = ft_lstlast(stack);
 	while (head)
 	{
 		if (head->next->next == NULL)
@@ -28,25 +17,31 @@ void	reverse_rotate(t_list **stack)
 		}
 		head = head->next;
 	}
-	end->next = *stack;
-	*stack = end;
+	tail->next = *stack;
+	*stack = tail;
+	return (0);
 }
 
-void	rra(t_list **stack_a)
+int	rra(t_list **stack_a)
 {
-	reverse_rotate(stack_a);
+	if (reverse_rotate(stack_a) == -1)
+		return (-1);
 	ft_putendl_fd("rra", 1);
+	return (0);
 }
 
-void	rrb(t_list **stack_b)
+int	rrb(t_list **stack_b)
 {
-	reverse_rotate(stack_b);
+	if (reverse_rotate(stack_b) == -1)
+		return (-1);
 	ft_putendl_fd("rrb", 1);
+	return (0);
 }
 
-void	rrr(t_list **stack_a, t_list **stack_b)
+int	rrr(t_list **stack_a, t_list **stack_b)
 {
-	reverse_rotate(stack_a);
-	reverse_rotate(stack_b);
+	if (reverse_rotate(stack_a) == -1 || reverse_rotate(stack_b) == -1)
+		return (-1);
 	ft_putendl_fd("rrr", 1);
+	return (0);
 }

@@ -1,51 +1,40 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/19 16:36:59 by oaoba             #+#    #+#             */
-/*   Updated: 2023/08/19 16:37:39 by oaoba            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "../include/push_swap.h"
 
-#include "../push_swap.h"
-
-bool	rotate(t_list **stack)
+int	rotate(t_list **stack)
 {
 	t_list	*head;
-	t_list	*end;
+	t_list	*tail;
 
 	if (ft_lstsize(stack) < 2)
-		return (false);
+		return (-1);
 	head = *stack;
-	end = ft_lstlast(stack);
+	tail = ft_lstlast(stack);
 	*stack = head->next;
-	end->next = head;
-	return (true);
+	head->next = NULL;
+	tail->next = head;
+	return (0);
 }
 
-bool	ra(t_list **stack_a)
+int	ra(t_list **stack_a)
 {
-	if (rotate(stack_a) == false)
-		return (false);
+	if (rotate(stack_a) == -1)
+		return (-1);
 	ft_putendl_fd("ra", 1);
-	return (true);
+	return (0);
 }
 
-bool	rb(t_list **stack_b)
+int	rb(t_list **stack_b)
 {
-	if (rotate(stack_b) == false)
-		return (false);
+	if (rotate(stack_b) == -1)
+		return (-1);
 	ft_putendl_fd("rb", 1);
-	return (true);
+	return (0);
 }
 
-bool	rr(t_list **stack_a, t_list **stack_b)
+int	rr(t_list **stack_a, t_list **stack_b)
 {
-	if (rotate(stack_a) == false || rotate(stack_b) == false)
-		return (false);
+	if (rotate(stack_a) == -1 || rotate(stack_b) == -1)
+		return (-1);
 	ft_putendl_fd("rr", 1);
-	return (true);
+	return (0);
 }

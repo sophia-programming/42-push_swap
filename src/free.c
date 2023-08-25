@@ -1,25 +1,15 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/19 16:36:35 by oaoba             #+#    #+#             */
-/*   Updated: 2023/08/19 16:37:39 by oaoba            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "../include/push_swap.h"
 
-#include "../push_swap.h"
-
-void	free_list(t_list *list)
+void	free_stack(t_list *stack)
 {
+	t_list	*head;
 	t_list	*tmp;
 
-	while (list)
+	head = stack;
+	while (head)
 	{
-		tmp = list;
-		list = list->next;
+		tmp = head;
+		head = head->next;
 		free(tmp);
 	}
 }
@@ -30,9 +20,7 @@ void	free_str(char **str)
 
 	i = 0;
 	while (str[i])
-	{
-		free(str[i]);
-		i++;
-	}
+		free(str[i++]);
 	free(str);
+	return ;
 }
