@@ -1,7 +1,9 @@
 #ifndef PUSH_SWAP_H
 # define  PUSH_SWAP_H
 
-# include "../../libft/libft.h"
+# include "../libft/libft.h"
+# include "../ft_printf/ft_printf.h"
+
 # include <libc.h>
 
 typedef struct s_list
@@ -19,9 +21,9 @@ void	ft_lstadd_front(t_list **list, t_list *new);
 t_list	*ft_lstlast(t_list **list);
 void	ft_lstadd_back(t_list **list, t_list *new);
 size_t	ft_lstsize(t_list **list);
-void	ft_printlst_data(t_list **head);
-void	ft_printlst_index(t_list **head);
-void	ft_printlst_index_data(t_list **head);
+//void	ft_printlst_data(t_list **head);
+//void	ft_printlst_index(t_list **head);
+//void	ft_printlst_index_data(t_list **head);
 int		is_sorted(t_list **stack);
 void	cordinate_comp(t_list **stack);
 void	simple_sort(t_list **stack_a, t_list **stack_b);
@@ -53,4 +55,5 @@ int		check_in_range(char *num);
 int		ft_isnum(char *num);
 void	free_str(char **str);
 void	ft_debuglst(t_list **stack_a, t_list **stack_b);
+long long	ft_atoll(char *str);
 #endif

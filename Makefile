@@ -1,33 +1,61 @@
-NAME = push_swap
-CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
-LIBFT_PATH = ./libft/
-SRCS = src/main.c src/rotate.c src/simple_sort5.c \
-		src/cordinate_comp.c src/push.c src/simple_sort.c src/simple_sort_utils.c \
-		src/free.c src/radix.c src/simple_sort3.c src/swap.c src/is_sorted.c \
-		src/reverse_rotate.c src/simple_sort4.c list/ft_lstadd_back.c  \
-		list/ft_lstlast.c list/ft_lstsize.c list/ft_lstadd_front.c \
-		list/ft_lstnew.c list/ft_printlst_index_data.c src/error_handle.c
+NAME	=	push_swap
+CC		=	cc
+CFLAGS	=	-Wall -Wextra -Werror
 
-OBJS = $(SRCS:%.c=%.o)
-LIBFTMAKE = $(MAKE) -C ./libft
+SRCS	=	src/main.c\
+ 			src/rotate.c\
+ 			src/simple_sort5.c\
+			src/cordinate_comp.c\
+			src/push.c\
+			src/simple_sort.c\
+			src/simple_sort_utils.c\
+			src/free.c\
+			src/radix.c\
+			src/simple_sort3.c\
+			src/swap.c\
+			src/is_sorted.c\
+			src/reverse_rotate.c\
+			src/simple_sort4.c\
+			src/error_handle.c\
+			src/utils.c\
+			list/ft_lstadd_back.c\
+			list/ft_lstlast.c\
+			list/ft_lstsize.c\
+			list/ft_lstadd_front.c\
+			list/ft_lstnew.c\
 
-.PHONY : all
+OBJS	=	$(SRCS:%.c=%.o)
+
+LIBFTFLAG		=	-L./libft -lft
+FT_PRINTFFLAG	=	-L./ft_printf -lftprintf
+
 all: $(NAME)
 
 $(NAME): $(OBJS)
-		$(LIBFTMAKE)
-		$(CC) $(CFLAGS) $(OBJS) $(LIBFT_PATH)libft.a -o $(NAME)
+		make -C ./libft
+		make -C ./ft_printf
+		$(CC) $(CFLAGS) $(OBJS) $(LIBFTFLAG) $(FT_PRINTFFLAG) -o $(NAME)
 
-.PHONY : clean
+lib:
+	make -C ./libft
+
+ft_printf:
+	make -C ./ft_printf
+
 clean :
-		$(LIBFTMAKE) clean
+		make -C ./libft clean
+		make -C ./ft_printf clean
 		$(RM) $(OBJS)
 
-.PHONY : fclean
 fclean: clean
-		$(LIBFTMAKE) fclean
-		$(RM) $(NAME)
+		make -C ./libft fclean
+		make -C ./ft_printf fclean
+		$(RM) $(NAME) $(OBJS)
 
-.PHONY : re
-re : fclean all
+re: fclean all
+
+test: all
+	@chmod +x ./test.sh
+	@./test.sh
+
+re : all clean fclean re lib ft_printf
