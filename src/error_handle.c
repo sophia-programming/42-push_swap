@@ -6,59 +6,54 @@ void	put_error(char *str)
 	exit(0);
 }
 
-int	ft_isnum(char *num)
+bool	check_isnum(char *num)
 {
-	int	i;
-	int	count_num;
+	size_t	i;
 
 	i = 0;
-	count_num = 0;
 	while (num[i] == '-' || num[i] == '+')
 	{
 		i++;
 		if (i == 2)
-			return (0);
+			return (false);
 	}
 	while (num[i])
 	{
 		if (!ft_isdigit(num[i]))
-			return (0);
-		count_num++;
+			return (false);
 		i++;
 	}
-	if (!count_num)
-		return (0);
-	return (1);
+	return (true);
 }
 
-int	check_dup(char **args, int num, int i)
+bool	check_duplicates(char **args, int num, int i)
 {
 	i++;
 	while (args[i])
 	{
 		if (ft_atoi(args[i]) == num)
-			return (1);
+			return (true);
 		i++;
 	}
-	return (0);
+	return (false);
 }
 
-int	check_in_range(char *num)
+bool	check_in_int(char *num)
 {
-	int			i;
+	size_t		i;
 	long long	lnum;
 
 	i = 0;
 	while (num[i])
 	{
-		if (i > INT_RANGE)
-			return (0);
+		if (INT_RANGE < i)
+			return (false);
 		i++;
 	}
 	lnum = ft_atoll(num);
-	if (lnum < INT_MIN || lnum > INT_MAX)
-		return (0);
-	return (1);
+	if ((lnum < INT_MIN) || (INT_MAX < lnum))
+		return (false);
+	return (true);
 }
 
 void	check_args(char **args, int start)
@@ -69,12 +64,12 @@ void	check_args(char **args, int start)
 	i = start;
 	while (args [i])
 	{
-		if (!ft_isnum(args[i]))
-			put_error("Error");
-		if (!check_in_range(args[i]))
+		if (!check_isnum(args[i]))
 			put_error("Error");
 		num = ft_atoi(args[i]);
-		if (check_dup(args, num, i))
+		if (!check_in_int(args[i]))
+			put_error("Error");
+		if (check_duplicates(args, num, i))
 			put_error("Error");
 		i++;
 	}
