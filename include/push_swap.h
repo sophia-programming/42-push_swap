@@ -13,7 +13,7 @@ typedef struct s_list
 	int				index;
 }				t_list;
 
-# define NEVER_EDITED -1
+# define NOT_EDITED -1
 # define INT_RANGE 11
 
 t_list	*ft_lstnew(int data);
@@ -25,6 +25,7 @@ size_t	ft_lstsize(t_list **list);
 //void	ft_printlst_index(t_list **head);
 //void	ft_printlst_index_data(t_list **head);
 void	update_indexes_of_list(t_list **stack);
+void	setup_stack(t_list **stack_a, t_list **stack_b, int argc, char **argv);
 bool	rotate(t_list **stack);
 void	reverse_rotate(t_list **stack);
 void	sa(t_list **stack_a);

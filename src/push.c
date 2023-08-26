@@ -33,8 +33,8 @@ void	pa(t_list **stack_a, t_list **stack_b)
 	ft_putendl_fd("pa", 1);
 }
 
-void	pb(t_list **stack_a, t_list **stack_b)
+void	pb(t_list **stack_b, t_list **stack_a)
 {
-	push(stack_a, stack_b);
+	push(stack_b, stack_a);
 	ft_putendl_fd("pb", 1);
 }

@@ -8,7 +8,7 @@ t_list	*ft_lstnew(int data)
 	if (!new)
 		return (NULL);
 	new->data = data;
-	new->index = NEVER_EDITED;
+	new->index = NOT_EDITED;
 	new->next = NULL;
 	return (new);
 }
