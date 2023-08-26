@@ -36,18 +36,18 @@ void	init_stack_a(t_list **stack_a, int argc, char **argv)
 		free_str(args);
 }
 
-//void print_stack(t_list *stack)
-//{
-//	t_list *tmp;
-//	tmp = stack;
-//
-//	while (tmp)
-//	{
-//		printf("%d ", tmp->data);
-//		tmp = tmp->next;
-//	}
-//	printf("\n");
-//}
+void print_stack(t_list *stack)
+{
+	t_list *tmp;
+	tmp = stack;
+
+	while (tmp)
+	{
+		printf("%d ", tmp->data);
+		tmp = tmp->next;
+	}
+	printf("\n");
+}
 
 int	main(int argc,	char **argv)
 {
@@ -57,7 +57,7 @@ int	main(int argc,	char **argv)
 	if (argc < 2)
 		return (1);
 	init_stack_a(&stack_a, argc, argv);
-//	print_stack(stack_a);
+	print_stack(stack_a);
 	stack_b = NULL;
 	if (is_sorted(&stack_a) || ft_lstsize(&stack_a) == 1)
 	{
@@ -65,8 +65,8 @@ int	main(int argc,	char **argv)
 		return (0);
 	}
 	sort_stack(&stack_a, &stack_b);
-//	print_stack(stack_a);
-//	print_stack(stack_b);
+	print_stack(stack_a);
+	print_stack(stack_b);
 	free_list(stack_a);
 	return (0);
 }
