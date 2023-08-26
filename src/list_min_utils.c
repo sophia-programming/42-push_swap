@@ -1,6 +1,6 @@
 #include "../include/push_swap.h"
 
-int	get_min_sort(t_list **stack, int min_valid)
+int	find_min_in_list(t_list **stack, int min_valid)
 {
 	t_list	*head;
 	int		min;

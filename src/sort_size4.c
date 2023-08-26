@@ -6,7 +6,7 @@ void	sort_size4(t_list **stack_a, t_list **stack_b)
 
 	if (is_sorted(stack_a))
 		return ;
-	distance = get_distance_to_min(stack_a, get_min_sort(stack_a, -1));
+	distance = get_distance_to_min(stack_a, find_min_in_list(stack_a, -1));
 	if (distance == 1)
 		ra(stack_a);
 	else if (distance == 2)
