@@ -3,7 +3,7 @@
 size_t	count_max_bits(t_list **stack)
 {
 	t_list	*head;
-	size_t	max_index;
+	int		max_index;
 	int		max_bits;
 
 	head = *stack;
@@ -11,7 +11,7 @@ size_t	count_max_bits(t_list **stack)
 	max_bits = 0;
 	while (head)
 	{
-		if (max_bits < head->index)
+		if (max_index < head->index)
 			max_index = head->index;
 		head = head->next;
 	}
