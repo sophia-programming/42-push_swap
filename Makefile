@@ -4,18 +4,18 @@ CFLAGS	=	-Wall -Wextra -Werror
 
 SRCS	=	src/main.c\
  			src/rotate.c\
- 			src/simple_sort5.c\
+ 			src/sort_under_5.c\
+ 			src/sort_size3.c\
+ 			src/sort_size4.c\
+ 			src/sort_size5.c\
 			src/cordinate_comp.c\
 			src/push.c\
-			src/simple_sort.c\
-			src/simple_sort_utils.c\
+			src/list_min_utils.c\
 			src/free.c\
 			src/radix.c\
-			src/simple_sort3.c\
 			src/swap.c\
 			src/is_sorted.c\
 			src/reverse_rotate.c\
-			src/simple_sort4.c\
 			src/error_handle.c\
 			src/utils.c\
 			list/ft_lstadd_back.c\
