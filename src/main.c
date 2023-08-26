@@ -31,7 +31,7 @@ void	init_stack_a(t_list **stack_a, int argc, char **argv)
 		ft_lstadd_back(stack_a, new);
 		i++;
 	}
-	cordinate_comp(stack_a);
+	update_indexes_of_list(stack_a);
 	if (argc == 2)
 		free_str(args);
 }

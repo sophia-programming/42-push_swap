@@ -8,7 +8,7 @@ SRCS	=	src/main.c\
  			src/sort_size3.c\
  			src/sort_size4.c\
  			src/sort_size5.c\
-			src/cordinate_comp.c\
+			src/update_index.c\
 			src/push.c\
 			src/list_min_utils.c\
 			src/free.c\
