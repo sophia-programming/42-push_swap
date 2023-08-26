@@ -2,7 +2,7 @@
 
 void	sort_size4(t_list **stack_a, t_list **stack_b)
 {
-	int	distance;
+	size_t	distance;
 
 	if (is_sorted(stack_a))
 		return ;
@@ -18,7 +18,7 @@ void	sort_size4(t_list **stack_a, t_list **stack_b)
 		rra(stack_a);
 	if (is_sorted(stack_a))
 		return ;
-	pb(stack_b, stack_a);
+	pb(stack_a, stack_b);
 	sort_size3(stack_a);
-	pa(stack_a, stack_b);
+	pa(stack_b, stack_a);
 }
