@@ -37,11 +37,11 @@ void	handle_processbits(t_list **stack_a, t_list **stack_b, \
 			if ((head_of_stack_a->index >> i) & 1)
 				ra(stack_a);
 			else
-				pb(stack_a, stack_b);
+				pb(stack_b, stack_a);
 			j++;
 		}
 		while (ft_lstsize(stack_b) != 0)
-			pa(stack_b, stack_a);
+			pa(stack_a, stack_b);
 		i++;
 	}
 }
