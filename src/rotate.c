@@ -1,40 +1,35 @@
 #include "../include/push_swap.h"
 
-int	rotate(t_list **stack)
+bool	rotate(t_list **stack)
 {
 	t_list	*head;
-	t_list	*tail;
+	t_list	*end;
 
 	if (ft_lstsize(stack) < 2)
-		return (-1);
+		return (false);
 	head = *stack;
-	tail = ft_lstlast(stack);
+	end = ft_lstlast(stack);
 	*stack = head->next;
-	head->next = NULL;
-	tail->next = head;
-	return (0);
+	head->next = NULL;//これ入れないと無限ループしてた！！
+	end->next = head;
+	return (true);
 }
 
-int	ra(t_list **stack_a)
+void	ra(t_list **stack_a)
 {
-	if (rotate(stack_a) == -1)
-		return (-1);
+	rotate(stack_a);
 	ft_putendl_fd("ra", 1);
-	return (0);
 }
 
-int	rb(t_list **stack_b)
+void	rb(t_list **stack_b)
 {
-	if (rotate(stack_b) == -1)
-		return (-1);
+	rotate(stack_b);
 	ft_putendl_fd("rb", 1);
-	return (0);
 }
 
-int	rr(t_list **stack_a, t_list **stack_b)
+void	rr(t_list **stack_a, t_list **stack_b)
 {
-	if (rotate(stack_a) == -1 || rotate(stack_b) == -1)
-		return (-1);
+	rotate(stack_a);
+	rotate(stack_b);
 	ft_putendl_fd("rr", 1);
-	return (0);
 }
