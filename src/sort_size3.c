@@ -6,29 +6,29 @@
 /*   By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 00:19:59 by oaoba             #+#    #+#             */
-/*   Updated: 2023/08/27 00:19:59 by oaoba            ###   ########.fr       */
+/*   Updated: 2023/08/28 18:27:30 by oaoba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	mainlogic_of_sort_size3(t_list **stack_a, t_list *head, int min, int next_min)
+void	mainlogic_of_sort_size3(t_list **stack_a, t_list *node, int min, int next_min)
 {
-	if (head->index == min && head->next->index != next_min)
+	if (node->index == min && node->next->index != next_min)
 	{
 		sa(stack_a);
 		ra(stack_a);
 	}
-	else if (head->index == next_min)
+	else if (node->index == next_min)
 	{
-		if (head->next->index == min)
+		if (node->next->index == min)
 			sa(stack_a);
 		else
 			rra(stack_a);
 	}
 	else
 	{
-		if ((head->next->index == min) && (head->index != next_min))
+		if ((node->next->index == min) && (node->index != next_min))
 			ra(stack_a);
 		else
 		{
@@ -40,14 +40,14 @@ void	mainlogic_of_sort_size3(t_list **stack_a, t_list *head, int min, int next_m
 
 void	sort_size3(t_list **stack_a)
 {
-	t_list	*head;
+	t_list	*node;
 	int		min;
 	int		next_min;
 
-	head = *stack_a;
+	node = *stack_a;
 	min = find_min_in_list(stack_a, -1);
 	next_min = find_min_in_list(stack_a, min);
 	if (is_sorted(stack_a))
 		return ;
-	mainlogic_of_sort_size3(stack_a, head, min, next_min);
+	mainlogic_of_sort_size3(stack_a, node, min, next_min);
 }

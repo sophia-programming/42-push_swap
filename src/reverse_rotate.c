@@ -6,7 +6,7 @@
 /*   By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 00:19:42 by oaoba             #+#    #+#             */
-/*   Updated: 2023/08/27 00:19:42 by oaoba            ###   ########.fr       */
+/*   Updated: 2023/08/28 18:24:42 by oaoba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,26 @@
 
 void	reverse_rotate(t_list **stack)
 {
-	t_list	*head;
-	t_list	*end;
+	t_list	*node;
+	t_list	*end_node;				
 
-	head = *stack;
-	end = ft_lstlast(stack);
+	node = *stack;
+	end_node = ft_lstlast(stack);
 
 //	if (ft_lstsize(stack) < 2)
 //		return (-1);
 
-	while (head)
+	while (node)
 	{
-		if (head->next->next == NULL)
+		if (node->next->next == NULL)
 		{
-			head->next = NULL;
+			node->next = NULL;
 			break ;
 		}
-		head = head->next;
+		node = node->next;
 	}
-	end->next = *stack;
-	*stack = end;
+	end_node->next = *stack;
+	*stack = end_node;
 }
 
 void	rra(t_list **stack_a)

@@ -6,7 +6,7 @@
 /*   By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 00:19:34 by oaoba             #+#    #+#             */
-/*   Updated: 2023/08/27 00:19:34 by oaoba            ###   ########.fr       */
+/*   Updated: 2023/08/28 18:12:54 by oaoba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 size_t	count_max_bits(t_list **stack)
 {
-	t_list	*head;
+	t_list	*node;
 	int		max_index;
 	int		max_bits;
 
-	head = *stack;
+	node = *stack;
 	max_index = (*stack)->index;
 	max_bits = 0;
-	while (head)
+	while (node)
 	{
-		if (max_index < head->index)
-			max_index = head->index;
-		head = head->next;
+		if (max_index < node->index)
+			max_index = node->index;
+		node = node->next;
 	}
 	while ((max_index >> max_bits) != 0)
 		max_bits++;
 	return (max_bits);
 }
 
-void	handle_processbits(t_list **stack_a, t_list **stack_b, \
+void	handle_process_bits(t_list **stack_a, t_list **stack_b, \
 					 size_t sizeof_stack_a, size_t max_bits)
 {
 	t_list	*head_of_stack_a;
@@ -65,5 +65,5 @@ void	radix_sort(t_list **stack_a, t_list **stack_b)
 
 	sizeof_stack_a = ft_lstsize(stack_a);
 	max_bits = count_max_bits(stack_a);
-	handle_processbits(stack_a, stack_b, sizeof_stack_a, max_bits);
+	handle_process_bits(stack_a, stack_b, sizeof_stack_a, max_bits);
 }
