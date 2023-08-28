@@ -6,13 +6,13 @@
 /*   By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 00:19:20 by oaoba             #+#    #+#             */
-/*   Updated: 2023/08/27 00:19:20 by oaoba            ###   ########.fr       */
+/*   Updated: 2023/08/28 15:33:51 by oaoba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	selective_sort(t_list **stack_a, t_list **stack_b)
+void	sort(t_list **stack_a, t_list **stack_b)
 {
 	if (ft_lstsize(stack_a) <= 5)
 		sort_under_5(stack_a, stack_b);
@@ -22,7 +22,7 @@ void	selective_sort(t_list **stack_a, t_list **stack_b)
 
 void	init_stack_a(t_list **stack_a, int argc, char **argv)
 {
-	t_list	*new;
+	t_list	*new_node;
 	char	**args;
 	size_t	i;
 
@@ -35,19 +35,14 @@ void	init_stack_a(t_list **stack_a, int argc, char **argv)
 	*stack_a = ft_lstnew(ft_atoi(args[i++]));
 	while (args[i])
 	{
-		new = ft_lstnew(ft_atoi(args[i++]));
-		ft_lstadd_back(stack_a, new);
+		new_node = ft_lstnew(ft_atoi(args[i++]));
+		ft_lstadd_back(stack_a, new_node);
 	}
-	update_indexes_of_list(stack_a);
-//	if (argc == 2)
-//		free_str(args);
+	coordinate_compression(stack_a);
+	if (argc == 2)
+		free_str(args);
 }
-/*
- * 上のfree関数がなくてもメモリリークしていない。
- * でもsplitでメモリ確保した上でfreeしているから必要ないと思う、確認する
-
-
- *ーーーーーーーーーーーーー以下はテスト用関数ーーーーーーーーーー
+ /*ーーーーーーーーーーーーー以下はテスト用関数ーーーーーーーーーー
  * void print_stack(t_list *stack)
  * {
  *	 t_list *tmp;
@@ -83,7 +78,7 @@ int	main(int argc,	char **argv)
 		return (2);
 	}
 //	print_stack(stack_a);
-	selective_sort(&stack_a, &stack_b);
+	sort(&stack_a, &stack_b);
 //	print_stack(stack_a);
 //	print_stack(stack_b);
 	free_list(stack_a);

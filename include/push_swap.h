@@ -36,7 +36,7 @@ void	rr(t_list **stack_a, t_list **stack_b);
 void	rra(t_list **stack_a);
 void	rrb(t_list **stack_b);
 void	rrr(t_list **stack_a, t_list **stack_b);
-void	update_indexes_of_list(t_list **stack);
+void	coordinate_compression(t_list **stack);
 int		find_min_in_list(t_list **stack, int min_valid);
 bool	is_sorted(t_list **stack);
 void	swap(t_list **stack);
@@ -52,6 +52,5 @@ void	free_list(t_list *list);
 void	free_str(char **str);
 void	check_args(char **args, int start);
 void	put_error(char *str);
-void	ft_debuglst(t_list **stack_a, t_list **stack_b);
 long long	ft_atoll(char *str);
 #endif

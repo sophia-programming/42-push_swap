@@ -6,7 +6,7 @@
 /*   By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 00:19:06 by oaoba             #+#    #+#             */
-/*   Updated: 2023/08/27 00:19:06 by oaoba            ###   ########.fr       */
+/*   Updated: 2023/08/28 15:38:05 by oaoba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 bool	is_sorted(t_list **stack)
 {
-	t_list	*head;
+	t_list	*node;
 
-	head = *stack;
-	while (head && head->next)
+	node = *stack;
+	while (node && node->next)
 	{
-		if (head->data <= head->next->data)
-			head = head->next;
+		if (node->data <= node->next->data)
+			node = node->next;
 		else
 			return (false);
 	}

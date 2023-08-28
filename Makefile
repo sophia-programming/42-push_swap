@@ -6,7 +6,7 @@
 #    By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/27 00:21:48 by oaoba             #+#    #+#              #
-#    Updated: 2023/08/28 13:07:21 by oaoba            ###   ########.fr        #
+#    Updated: 2023/08/28 15:32:43 by oaoba            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ srcs	=	src/main.c\
  			src/sort_size3.c\
  			src/sort_size4.c\
  			src/sort_size5.c\
-			src/update_index.c\
+			src/coordinate_compression.c\
 			src/push.c\
 			src/list_min_utils.c\
 			src/free.c\
