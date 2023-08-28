@@ -1,8 +1,20 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/08/27 00:21:48 by oaoba             #+#    #+#              #
+#    Updated: 2023/08/28 13:07:21 by oaoba            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME	=	push_swap
 CC		=	cc
 CFLAGS	=	-Wall -Wextra -Werror
 
-SRCS	=	src/main.c\
+srcs	=	src/main.c\
  			src/rotate.c\
  			src/sort_under_5.c\
  			src/sort_size3.c\
@@ -22,21 +34,21 @@ SRCS	=	src/main.c\
 			list/ft_lstlast.c\
 			list/ft_lstsize.c\
 			list/ft_lstadd_front.c\
-			list/ft_lstnew.c\
+			list/ft_lstnew.c
 
-OBJS	=	$(SRCS:%.c=%.o)
+objs	=	$(srcs:%.c=%.o)
 
-LIBFTFLAG		=	-L./libft -lft
-FT_PRINTFFLAG	=	-L./ft_printf -lftprintf
+libftflag		=	-L./libft -lft
+ft_printfflag	=	-L./ft_printf -lftprintf
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(objs)
 		make -C ./libft
 		make -C ./ft_printf
-		$(CC) $(CFLAGS) $(OBJS) $(LIBFTFLAG) $(FT_PRINTFFLAG) -o $(NAME)
+		$(CC) $(CFLAGS) $(objs) $(libftflag) $(ft_printfflag) -o $(NAME)
 
-lib:
+libft:
 	make -C ./libft
 
 ft_printf:
@@ -45,17 +57,13 @@ ft_printf:
 clean :
 		make -C ./libft clean
 		make -C ./ft_printf clean
-		$(RM) $(OBJS)
+		$(RM) $(objs)
 
 fclean: clean
 		make -C ./libft fclean
 		make -C ./ft_printf fclean
-		$(RM) $(NAME) $(OBJS)
+		$(RM) $(NAME) $(objs)
 
 re: fclean all
 
-test: all
-	@chmod +x ./test.sh
-	@./test.sh
-
-re : all clean fclean re lib ft_printf
+.PHONY : all clean fclean re libft ft_printf

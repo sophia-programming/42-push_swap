@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/27 00:19:20 by oaoba             #+#    #+#             */
+/*   Updated: 2023/08/27 00:19:20 by oaoba            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 void	selective_sort(t_list **stack_a, t_list **stack_b)
@@ -27,23 +39,29 @@ void	init_stack_a(t_list **stack_a, int argc, char **argv)
 		ft_lstadd_back(stack_a, new);
 	}
 	update_indexes_of_list(stack_a);
-	if (argc == 2)
-		free_str(args);
+//	if (argc == 2)
+//		free_str(args);
 }
-//ーーーーーーーーーーーーー以下はテスト用関数ーーーーーーーーーー
-void print_stack(t_list *stack)
-{
-	t_list *tmp;
-	tmp = stack;
+/*
+ * 上のfree関数がなくてもメモリリークしていない。
+ * でもsplitでメモリ確保した上でfreeしているから必要ないと思う、確認する
 
-	while (tmp)
-	{
-		printf("%d ", tmp->data);
-		tmp = tmp->next;
-	}
-	printf("\n");
-}
-//------------------------------------------------------
+
+ *ーーーーーーーーーーーーー以下はテスト用関数ーーーーーーーーーー
+ * void print_stack(t_list *stack)
+ * {
+ *	 t_list *tmp;
+ *	 tmp = stack;
+ *
+ *   while (tmp)
+ *	  {
+ *       printf("%d ", tmp->data);
+ *  	 tmp = tmp->next;
+ *    }
+ *   printf("\n");
+ * }
+ * --------------------------------------------------
+ */
 
 void setup_stack(t_list **stack_a, t_list **stack_b, int argc, char **argv)
 {
@@ -64,9 +82,9 @@ int	main(int argc,	char **argv)
 		free_list(stack_a);
 		return (2);
 	}
-	print_stack(stack_a);
+//	print_stack(stack_a);
 	selective_sort(&stack_a, &stack_b);
-	print_stack(stack_a);
-	print_stack(stack_b);
+//	print_stack(stack_a);
+//	print_stack(stack_b);
 	free_list(stack_a);
 }
