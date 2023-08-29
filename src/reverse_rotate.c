@@ -6,7 +6,7 @@
 /*   By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 00:19:42 by oaoba             #+#    #+#             */
-/*   Updated: 2023/08/28 18:24:42 by oaoba            ###   ########.fr       */
+/*   Updated: 2023/08/29 14:48:10 by oaoba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,6 @@ void	reverse_rotate(t_list **stack)
 
 	node = *stack;
 	end_node = ft_lstlast(stack);
-
-//	if (ft_lstsize(stack) < 2)
-//		return (-1);
-
 	while (node)
 	{
 		if (node->next->next == NULL)

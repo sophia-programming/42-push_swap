@@ -6,7 +6,7 @@
 /*   By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 00:20:33 by oaoba             #+#    #+#             */
-/*   Updated: 2023/08/27 00:20:33 by oaoba            ###   ########.fr       */
+/*   Updated: 2023/08/29 14:51:15 by oaoba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ void	swap(t_list **stack)
 	int		tmp_data;
 	int		tmp_index;
 
-//	if (ft_lstsize(stack) < 2)
-//		return (-1);
 	head = *stack;
 	next = (*stack)->next;
 	tmp_data = head->data;
@@ -45,8 +43,6 @@ void	sb(t_list **stack_b)
 
 void	ss(t_list **stack_a, t_list **stack_b)
 {
-//	if (ft_lstsize(stack_a) < 2 || ft_lstsize(stack_b) < 2)
-//		return (-1);
 	swap(stack_a);
 	swap(stack_b);
 	ft_putendl_fd("ss", 1);

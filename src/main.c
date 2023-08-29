@@ -6,7 +6,7 @@
 /*   By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 00:19:20 by oaoba             #+#    #+#             */
-/*   Updated: 2023/08/28 15:33:51 by oaoba            ###   ########.fr       */
+/*   Updated: 2023/08/29 14:52:30 by oaoba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,10 @@ void	init_stack_a(t_list **stack_a, int argc, char **argv)
  *    }
  *   printf("\n");
  * }
- * --------------------------------------------------
  */
-
-void setup_stack(t_list **stack_a, t_list **stack_b, int argc, char **argv)
+ 
+void	setup_stack(t_list **stack_a, t_list **stack_b,
+			int argc, char **argv)
 {
 	init_stack_a(stack_a, argc, argv);
 	*stack_b = NULL;
@@ -71,7 +71,7 @@ int	main(int argc,	char **argv)
 
 	if (argc < 2)
 		return (1);
-	setup_stack(&stack_a,&stack_b, argc, argv);
+	setup_stack(&stack_a, &stack_b, argc, argv);
 	if (is_sorted(&stack_a) == true || ft_lstsize(&stack_a) == 0)
 	{
 		free_list(stack_a);

@@ -6,13 +6,14 @@
 /*   By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 00:19:59 by oaoba             #+#    #+#             */
-/*   Updated: 2023/08/28 18:27:30 by oaoba            ###   ########.fr       */
+/*   Updated: 2023/08/29 14:42:15 by oaoba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	mainlogic_of_sort_size3(t_list **stack_a, t_list *node, int min, int next_min)
+void	mainlogic_of_sort_size3(t_list **stack_a, t_list *node,
+		int min, int next_min)
 {
 	if (node->index == min && node->next->index != next_min)
 	{

@@ -6,7 +6,7 @@
 /*   By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 00:19:49 by oaoba             #+#    #+#             */
-/*   Updated: 2023/08/28 18:25:57 by oaoba            ###   ########.fr       */
+/*   Updated: 2023/08/29 14:43:29 by oaoba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ bool	rotate(t_list **stack)
 	node = *stack;
 	end_node = ft_lstlast(stack);
 	*stack = node->next;
-	node->next = NULL;//これ入れないと無限ループしてた！！
+	node->next = NULL;
 	end_node->next = node;
 	return (true);
 }

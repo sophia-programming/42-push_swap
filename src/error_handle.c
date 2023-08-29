@@ -6,7 +6,7 @@
 /*   By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 00:18:43 by oaoba             #+#    #+#             */
-/*   Updated: 2023/08/29 13:45:49 by oaoba            ###   ########.fr       */
+/*   Updated: 2023/08/29 14:44:31 by oaoba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ bool	check_isnum(char *num)
 	size_t	i;
 
 	i = 0;
-
 	if ((num[0] == '+' || num[0] == '-') && (num[1] == '\0'))
 		return (false);
 	while (num[i] == '-' || num[i] == '+')
@@ -31,7 +30,7 @@ bool	check_isnum(char *num)
 		i++;
 		if (i == 2)
 			return (false);
-	 }
+	}
 	while (num[i])
 	{
 		if (!ft_isdigit(num[i]))
