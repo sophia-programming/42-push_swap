@@ -6,11 +6,12 @@
 /*   By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 00:22:29 by oaoba             #+#    #+#             */
-/*   Updated: 2023/08/27 00:22:29 by oaoba            ###   ########.fr       */
+/*   Updated: 2023/08/29 13:52:33 by oaoba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
 void	ft_lstadd_front(t_list **list, t_list *new)
 {
 	new->next = *list;
