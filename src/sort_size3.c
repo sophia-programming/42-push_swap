@@ -6,7 +6,7 @@
 /*   By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 00:19:59 by oaoba             #+#    #+#             */
-/*   Updated: 2023/08/29 14:42:15 by oaoba            ###   ########.fr       */
+/*   Updated: 2023/08/29 17:21:55 by oaoba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void	sort_size3(t_list **stack_a)
 	int		next_min;
 
 	node = *stack_a;
-	min = find_min_in_list(stack_a, -1);
-	next_min = find_min_in_list(stack_a, min);
+	min = find_min_index(stack_a, -1);
+	next_min = find_min_index(stack_a, min);
 	if (is_sorted(stack_a))
 		return ;
 	mainlogic_of_sort_size3(stack_a, node, min, next_min);

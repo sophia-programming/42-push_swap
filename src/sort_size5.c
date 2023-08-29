@@ -6,7 +6,7 @@
 /*   By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 00:20:13 by oaoba             #+#    #+#             */
-/*   Updated: 2023/08/27 00:20:13 by oaoba            ###   ########.fr       */
+/*   Updated: 2023/08/29 17:22:03 by oaoba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	sort_size5(t_list **stack_a, t_list **stack_b)
 
 	if (is_sorted(stack_a))
 		return ;
-	distance = get_distance_to_min(stack_a, find_min_in_list(stack_a, -1));
+	distance = get_distance_to_min(stack_a, find_min_index(stack_a, -1));
 	if (distance == 1)
 		ra(stack_a);
 	else if (distance == 2)

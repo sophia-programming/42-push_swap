@@ -6,7 +6,7 @@
 /*   By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 13:48:04 by oaoba             #+#    #+#             */
-/*   Updated: 2023/08/29 13:51:29 by oaoba            ###   ########.fr       */
+/*   Updated: 2023/08/29 17:37:19 by oaoba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void		rra(t_list **stack_a);
 void		rrb(t_list **stack_b);
 void		rrr(t_list **stack_a, t_list **stack_b);
 void		coordinate_compression(t_list **stack);
-int			find_min_in_list(t_list **stack, int min_valid);
+int			find_min_index(t_list **stack, int min_valid);
 bool		is_sorted(t_list **stack);
 void		swap(t_list **stack);
 void		mainlogic_of_sort_size3(t_list **stack, t_list *head,

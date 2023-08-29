@@ -6,7 +6,7 @@
 /*   By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 00:18:43 by oaoba             #+#    #+#             */
-/*   Updated: 2023/08/29 15:49:54 by oaoba            ###   ########.fr       */
+/*   Updated: 2023/08/29 16:50:53 by oaoba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,12 @@ bool	check_isnum(char *num)
 	return (true);
 }
 
-bool	check_duplicates(char **args, int num, int i)
+bool	check_duplicates(char **args, int target_num, int i)
 {
 	i++;
 	while (args[i])
 	{
-		if (ft_atoi(args[i]) == num)
+		if (ft_atoi(args[i]) == target_num)
 			return (true);
 		i++;
 	}

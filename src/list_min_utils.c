@@ -6,41 +6,41 @@
 /*   By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 00:19:13 by oaoba             #+#    #+#             */
-/*   Updated: 2023/08/27 00:19:13 by oaoba            ###   ########.fr       */
+/*   Updated: 2023/08/29 17:36:57 by oaoba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	find_min_in_list(t_list **stack, int min_valid)
+int	find_min_index(t_list **stack, int min_valid)
 {
-	t_list	*head;
-	int		min;
+	t_list	*node;
+	int		min_index;
 
-	head = *stack;
-	min = head->index;
-	while (head->next)
+	node = *stack;
+	min_index = node->index;
+	while (node->next)
 	{
-		head = head->next;
-		if ((head->index < min) && head->index != min_valid)
-			min = head->index;
+		node = node->next;
+		 if (node->index < min_index && node->index != min_valid)
+			min_index = node->index;
 	}
-	return (min);
+	return (min_index);
 }
 
-int	get_distance_to_min(t_list **stack, int min)
+int	get_distance_to_min(t_list **stack, int min_data)
 {
-	t_list	*head;
+	t_list	*node;
 	int		distance;
 
 	distance = 0;
-	head = *stack;
-	while (head)
+	node = *stack;
+	while (node)
 	{
-		if (head->index == min)
+		if (node->index == min_data)
 			break ;
 		distance++;
-		head = head->next;
+		node = node->next;
 	}
 	return (distance);
 }
