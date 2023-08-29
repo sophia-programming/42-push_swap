@@ -6,7 +6,7 @@
 /*   By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 00:19:20 by oaoba             #+#    #+#             */
-/*   Updated: 2023/08/29 14:52:30 by oaoba            ###   ########.fr       */
+/*   Updated: 2023/08/30 00:05:01 by oaoba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	init_stack_a(t_list **stack_a, int argc, char **argv)
 	else
 		args = &argv[1];
 	check_args(args, i);
+	if (args[i] == NULL)
+		put_error("Error");
 	*stack_a = ft_lstnew(ft_atoi(args[i++]));
 	while (args[i])
 	{
