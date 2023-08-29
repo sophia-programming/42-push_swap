@@ -6,7 +6,7 @@
 /*   By: oaoba <oaoba@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 00:18:43 by oaoba             #+#    #+#             */
-/*   Updated: 2023/08/29 14:44:31 by oaoba            ###   ########.fr       */
+/*   Updated: 2023/08/29 15:49:54 by oaoba            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,13 @@ void	put_error(char *str)
 bool	check_isnum(char *num)
 {
 	size_t	i;
+	size_t	count_num;
 
 	i = 0;
-	if ((num[0] == '+' || num[0] == '-') && (num[1] == '\0'))
+	count_num = 0;
+	if ((num[i] == '+' || num[i] == '-') && (num[i + 1] == '\0'))
+		return (false);
+	if (num[i] == '\0')
 		return (false);
 	while (num[i] == '-' || num[i] == '+')
 	{
@@ -35,8 +39,11 @@ bool	check_isnum(char *num)
 	{
 		if (!ft_isdigit(num[i]))
 			return (false);
+		count_num++;
 		i++;
 	}
+	if (count_num == 0)
+		return (false);
 	return (true);
 }
 
@@ -76,7 +83,7 @@ void	check_args(char **args, int start)
 	int		num;
 
 	i = start;
-	while (args [i])
+	while (args[i])
 	{
 		if (!check_isnum(args[i]))
 			put_error("Error");
