@@ -12,7 +12,7 @@
 
 NAME	=	push_swap
 CC		=	cc
-CFLAGS	=	-Wall -Wextra -Werror
+CFLAGS	=	-Wall -Wextra -Werror -g3 -fsanitize=address
 
 srcs	=	src/main.c\
  			src/rotate.c\
