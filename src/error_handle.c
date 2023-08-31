@@ -47,7 +47,7 @@ bool	check_isnum(char *num)
 	return (true);
 }
 
-bool	check_duplicates(char **args, int target_num, int i)
+bool	check_duplicate(char **args, int target_num, int i)
 {
 	i++;
 	while (args[i])
@@ -62,7 +62,7 @@ bool	check_duplicates(char **args, int target_num, int i)
 bool	check_in_int(char *num)
 {
 	size_t		i;
-	long long	lnum;
+	int64_t 	lnum;
 
 	i = 0;
 	while (num[i])
@@ -90,7 +90,7 @@ void	check_args(char **args, int start)
 		num = ft_atoi(args[i]);
 		if (!check_in_int(args[i]))
 			put_error("Error");
-		if (check_duplicates(args, num, i))
+		if (check_duplicate(args, num, i))
 			put_error("Error");
 		i++;
 	}
