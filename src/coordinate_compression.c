@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-void	compress_indexes_in_stack(t_list **stack, size_t index)
+void	assign_index(t_list **stack, size_t index)
 {
 	t_list	*node;
 	t_list	*data_min_node;
@@ -37,7 +37,7 @@ void	coordinate_compression(t_list **stack)
 	index = 0;
 	while (index < ft_lstsize(stack))
 	{
-		compress_indexes_in_stack(stack, index);
+		assign_index(stack, index);
 		index++;
 	}
 }

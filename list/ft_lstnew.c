@@ -20,7 +20,7 @@ t_list	*ft_lstnew(int data)
 	if (!new)
 		return (NULL);
 	new->data = data;
-	new->index = NOT_EDITED;
+	new->index = -1;
 	new->next = NULL;
 	return (new);
 }

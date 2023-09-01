@@ -25,7 +25,6 @@ typedef struct s_list
 	int				index;
 }				t_list;
 
-# define NOT_EDITED -1
 # define INT_RANGE 11
 
 t_list		*ft_lstnew(int data);

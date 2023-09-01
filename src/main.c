@@ -44,21 +44,7 @@ void	init_stack_a(t_list **stack_a, int argc, char **argv)
 	if (argc == 2)
 		free_str(args);
 }
- /*ーーーーーーーーーーーーー以下はテスト用関数ーーーーーーーーーー
- * void print_stack(t_list *stack)
- * {
- *	 t_list *tmp;
- *	 tmp = stack;
- *
- *   while (tmp)
- *	  {
- *       printf("%d ", tmp->data);
- *  	 tmp = tmp->next;
- *    }
- *   printf("\n");
- * }
- */
- 
+
 void	setup_stack(t_list **stack_a, t_list **stack_b,
 			int argc, char **argv)
 {
@@ -79,9 +65,6 @@ int	main(int argc,	char **argv)
 		free_list(stack_a);
 		return (2);
 	}
-//	print_stack(stack_a);
 	sort(&stack_a, &stack_b);
-//	print_stack(stack_a);
-//	print_stack(stack_b);
 	free_list(stack_a);
 }
