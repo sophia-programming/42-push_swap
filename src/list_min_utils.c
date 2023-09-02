@@ -22,7 +22,7 @@ int	find_min_index(t_list **stack, int min_valid)
 	while (node->next)
 	{
 		node = node->next;
-		 if (node->index < min_index && node->index != min_valid)
+		if (node->index < min_index && node->index != min_valid)
 			min_index = node->index;
 	}
 	return (min_index);

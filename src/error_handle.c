@@ -61,8 +61,8 @@ bool	check_duplicate(char **args, int target_num, int i)
 
 bool	check_in_int(char *num)
 {
-	size_t		i;
-	int64_t 	lnum;
+	size_t	i;
+	int64_t	lnum;
 
 	i = 0;
 	while (num[i])
