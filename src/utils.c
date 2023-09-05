@@ -38,6 +38,10 @@ long long	ft_atoll(char *str)
 			return (-1);
 		}
 	}
+	else if (str[i] == '+')
+	{
+		i++;
+	}
 	while (str[i] && '0' <= str[i] && str[i] <= '9')
 	{
 		ret = ret * 10 + str[i] - '0';
