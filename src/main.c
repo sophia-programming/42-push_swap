@@ -32,15 +32,15 @@ void	init_stack_a(t_list **stack_a, int argc, char **argv)
 	else
 		args = &argv[1];
 	check_args(args, i);
-	if (args[i] == NULL)
+	if (!args[i])
 		put_error("Error");
 	*stack_a = ft_lstnew(ft_atoi(args[i++]));
-	if (*stack_a == NULL)
+	if (!*stack_a)
 		put_error("Error");
 	while (args[i])
 	{
 		new_node = ft_lstnew(ft_atoi(args[i++]));
-		if (new_node == NULL)
+		if (!new_node)
 			put_error("Error");
 		ft_lstadd_back(stack_a, new_node);
 	}
