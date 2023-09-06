@@ -87,9 +87,9 @@ void	check_args(char **args, int start)
 	{
 		if (!check_isnum(args[i]))
 			put_error("Error");
-		num = ft_atoi(args[i]);
 		if (!check_in_int(args[i]))
 			put_error("Error");
+		num = ft_atoi(args[i]);
 		if (check_duplicate(args, num, i))
 			put_error("Error");
 		i++;

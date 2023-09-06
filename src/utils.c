@@ -32,17 +32,10 @@ long long	ft_atoll(char *str)
 	if (str[i] == '-')
 	{
 		flag = -1;
-//		if (str[i] == '0')
-//		{
-//			ft_printf("-0 is not number\n");
-//			return (-1);
-//		}
 		i++;
 	}
 	else if (str[i] == '+')
-	{
 		i++;
-	}
 	while (str[i] && '0' <= str[i] && str[i] <= '9')
 	{
 		ret = ret * 10 + str[i] - '0';
