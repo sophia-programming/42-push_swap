@@ -30,4 +30,3 @@ void	check_args(char **args, int start)
 		i++;
 	}
 }
-
