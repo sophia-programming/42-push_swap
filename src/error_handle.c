@@ -57,7 +57,7 @@ bool	check_isnum(char *num)
 	return (true);
 }
 
-bool	check_duplicate(char **args, int target_num, int i)
+bool	check_duplicate(char **args, int target_num, size_t	i)
 {
 	i++;
 	while (args[i])

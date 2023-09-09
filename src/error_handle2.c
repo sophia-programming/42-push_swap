@@ -12,9 +12,9 @@
 
 #include "../include/push_swap.h"
 
-void	check_args(char **args, int start)
+void	check_args(char **args, size_t	start)
 {
-	int		i;
+	size_t	i;
 	int		num;
 
 	i = start;

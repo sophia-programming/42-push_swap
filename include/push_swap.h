@@ -60,13 +60,13 @@ void		sort_size4(t_list **stack_a, t_list **stack_b);
 void		sort_size5(t_list **stack_a, t_list **stack_b);
 void		sort_under_5(t_list **stack_a, t_list **stack_b);
 void		radix_sort(t_list **stack_a, t_list **stack_b);
-size_t		count_max_bits(t_list **stack);
+int			count_max_bits(t_list **stack);
 void		free_list(t_list *list);
 void		free_str(char **str);
-void		check_args(char **args, int start);
+void		check_args(char **args, size_t	start);
 void		put_error(char *str);
 int64_t		ft_atoll(char *str);
 bool		check_isnum(char *num);
-bool		check_duplicate(char **args, int target_num, int i);
+bool		check_duplicate(char **args, int target_num, size_t	i);
 bool		check_in_int(char *num);
 #endif

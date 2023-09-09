@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-size_t	count_max_bits(t_list **stack)
+int	count_max_bits(t_list **stack)
 {
 	t_list	*node;
 	int		max_index;
@@ -61,7 +61,7 @@ void	handle_process_bits(t_list **stack_a, t_list **stack_b, \
 void	radix_sort(t_list **stack_a, t_list **stack_b)
 {
 	size_t	sizeof_stack_a;
-	size_t	max_bits;
+	int		max_bits;
 
 	sizeof_stack_a = ft_lstsize(stack_a);
 	max_bits = count_max_bits(stack_a);
