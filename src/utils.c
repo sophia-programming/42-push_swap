@@ -18,11 +18,11 @@ int	ft_isspace_atoll(char c)
 	c == '\r' || c == ' ');
 }
 
-long long	ft_atoll(char *str)
+int64_t	ft_atoll(char *str)
 {
-	long long	ret;
-	int			flag;
-	int			i;
+	int64_t	ret;
+	int8_t	flag;
+	int		i;
 
 	ret = 0;
 	flag = 1;
@@ -40,6 +40,7 @@ long long	ft_atoll(char *str)
 	{
 		ret = ret * 10 + str[i] - '0';
 		i++;
+
 	}
 	return (ret * flag);
 }

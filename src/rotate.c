@@ -12,19 +12,16 @@
 
 #include "../include/push_swap.h"
 
-bool	rotate(t_list **stack)
+void	rotate(t_list **stack)
 {
 	t_list	*node;
 	t_list	*end_node;
 
-	if (ft_lstsize(stack) < 2)
-		return (false);
 	node = *stack;
 	end_node = ft_lstlast(stack);
 	*stack = node->next;
 	node->next = NULL;
 	end_node->next = node;
-	return (true);
 }
 
 void	ra(t_list **stack_a)

@@ -65,5 +65,5 @@ void		free_list(t_list *list);
 void		free_str(char **str);
 void		check_args(char **args, int start);
 void		put_error(char *str);
-long long	ft_atoll(char *str);
+int64_t		ft_atoll(char *str);
 #endif
