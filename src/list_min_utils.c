@@ -28,7 +28,7 @@ int	find_min_index(t_list **stack, int min_valid)
 	return (min_index);
 }
 
-int	get_distance_to_min(t_list **stack, int min_data)
+size_t	get_distance_to_min(t_list **stack, int min_data)
 {
 	t_list	*node;
 	int		distance;

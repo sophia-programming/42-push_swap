@@ -29,6 +29,7 @@ srcs	=	src/main.c\
 			src/is_sorted.c\
 			src/reverse_rotate.c\
 			src/error_handle.c\
+			src/error_handle2.c\
 			src/utils.c\
 			list/ft_lstadd_back.c\
 			list/ft_lstlast.c\

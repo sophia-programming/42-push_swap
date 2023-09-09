@@ -18,33 +18,42 @@ void	put_error(char *str)
 	exit(0);
 }
 
-bool	check_isnum(char *num)
+bool	check_initial_conditions(const char *num, size_t *i)
+{
+	if ((num[*i] == '+' || num[*i] == '-') && (num[*i + 1] == '\0'))
+		return false;
+	if (num[*i] == '\0')
+		return false;
+	while (num[*i] == '+' || num[*i] == '-')
+	{
+		(*i)++;
+		if (*i == 2)
+			return false;
+	}
+	if ((num[0] == '0' && num[1] != '\0') || (num[*i] == '0' && num[*i + 1] == '0'))
+		return false;
+	return true;
+}
+
+bool check_isnum(char *num)
 {
 	size_t	i;
 	size_t	count_num;
 
 	i = 0;
 	count_num = 0;
-	if ((num[i] == '+' || num[i] == '-') && (num[i + 1] == '\0'))
-		return (false);
-	if (num[i] == '\0')
-		return (false);
-	while (num[i] == '-' || num[i] == '+')
-	{
-		i++;
-		if (i == 2)
-			return (false);
-	}
+	if (!check_initial_conditions(num, &i))
+		return false;
 	while (num[i])
 	{
 		if (!ft_isdigit(num[i]))
-			return (false);
+			return false;
 		count_num++;
 		i++;
 	}
 	if (count_num == 0)
-		return (false);
-	return (true);
+		return false;
+	return true;
 }
 
 bool	check_duplicate(char **args, int target_num, int i)

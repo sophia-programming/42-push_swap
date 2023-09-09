@@ -40,7 +40,6 @@ int64_t	ft_atoll(char *str)
 	{
 		ret = ret * 10 + str[i] - '0';
 		i++;
-
 	}
 	return (ret * flag);
 }

@@ -31,11 +31,11 @@ t_list		*ft_lstnew(int data);
 void		ft_lstadd_front(t_list **list, t_list *new);
 t_list		*ft_lstlast(t_list **list);
 void		ft_lstadd_back(t_list **list, t_list *new);
-size_t		ft_lstsize(t_list **list);
+int			ft_lstsize(t_list **list);
 void		update_indexes_of_list(t_list **stack);
 void		setup_stack(t_list **stack_a, t_list **stack_b,
 				int argc, char **argv);
-bool		rotate(t_list **stack);
+void		rotate(t_list **stack);
 void		reverse_rotate(t_list **stack);
 void		sa(t_list **stack_a);
 void		sb(t_list **stack_b);
@@ -54,7 +54,7 @@ bool		is_sorted(t_list **stack);
 void		swap(t_list **stack);
 void		mainlogic_of_sort_size3(t_list **stack, t_list *head,
 				int min, int next_min);
-int			get_distance_to_min(t_list **stack, int min);
+size_t		get_distance_to_min(t_list **stack, int min);
 void		sort_size3(t_list **stack_a);
 void		sort_size4(t_list **stack_a, t_list **stack_b);
 void		sort_size5(t_list **stack_a, t_list **stack_b);

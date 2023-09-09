@@ -61,7 +61,7 @@ void	handle_process_bits(t_list **stack_a, t_list **stack_b, \
 void	radix_sort(t_list **stack_a, t_list **stack_b)
 {
 	size_t	sizeof_stack_a;
-	int		max_bits;
+	size_t	max_bits;
 
 	sizeof_stack_a = ft_lstsize(stack_a);
 	max_bits = count_max_bits(stack_a);

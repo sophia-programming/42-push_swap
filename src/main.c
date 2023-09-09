@@ -24,7 +24,7 @@ void	init_stack_a(t_list **stack_a, int argc, char **argv)
 {
 	t_list	*new_node;
 	char	**args;
-	size_t	i;
+	int		i;
 
 	i = 0;
 	if (argc == 2)
