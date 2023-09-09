@@ -66,4 +66,7 @@ void		free_str(char **str);
 void		check_args(char **args, int start);
 void		put_error(char *str);
 int64_t		ft_atoll(char *str);
+bool		check_isnum(char *num);
+bool		check_duplicate(char **args, int target_num, int i);
+bool		check_in_int(char *num);
 #endif
